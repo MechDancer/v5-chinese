@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PROS 初学者指南 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../index.html"/>
+        <link rel="up" title="入门" href="index.html"/>
+        <link rel="next" title="在 Windows 上安装" href="windows.html"/>
+        <link rel="prev" title="入门" href="index.html"/>
+  
+   
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PROS for V5（中文）
+          
+
+          
+            
+            <img src="../_static/logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  V5 (3.1.6)
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">主页</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">PROS：文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">版本发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">获得帮助</a></li>
+</ul>
+<p class="caption"><span class="caption-text">入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">入门</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PROS 初学者指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pros-c-c">我从未使用过 PROS，之前也没有编写过 C/C++ 代码，我该从哪里开始？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-c-pros">我了解 C/C++，该怎么使用 PROS 呢？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">安装指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API 主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/c/index.html">C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cpp/index.html">C++ API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">工具</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">编辑器</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OkapiLib</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/index.html">OkapiLib 文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/api/index.html">OkapiLib API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extended/index.html">Extended API Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PROS for V5（中文）</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">入门</a> &raquo;</li>
+        
+      <li>PROS 初学者指南</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/MechDancer/pros-docs/blob/master/v5-chinese/getting-started/new-users.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pros">
+<h1>PROS 初学者指南<a class="headerlink" href="#pros" title="永久链接至标题">¶</a></h1>
+<p>入门时，关于 PROS 的特征，最应该注意的是开发 PROS 就是开发标准的 C 或 C++。任何在标准 C/C++ 中有效的东西在 PROS 项目中同样有效，同时，无效的代码给出与一般 C/C++ 给出的的错误也相同。学习 C/C++ 对于使用 PROS 至关重要。</p>
+<div class="section" id="pros-c-c">
+<h2>我从未使用过 PROS，之前也没有编写过 C/C++ 代码，我该从哪里开始？<a class="headerlink" href="#pros-c-c" title="永久链接至标题">¶</a></h2>
+<p>如果你从未使用过 PROS，之前也没有开发过非 VEX C/C++ 项目，我们推荐你先浏览下列 C 语言教程：</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.studytonight.com/c/user-defined-functions-in-c.php">函数</a>：C 是一种极其强调函数的语言，了解函数的作用是使用 PROS 的基础。 <a class="reference external" href="../api/index.html">PROS API</a> 是一系列函数，因此只要你想和传感器或电机交互，就一定会用到函数。</li>
+<li><a class="reference external" href="https://www.tutorialspoint.com/cprogramming/c_header_files.htm">头文件</a>：PROS 模板（创建 PROS 项目时自动创建的文件集）包含几个头文件，你在开发自己的代码时也可以添加其他头文件。 头文件包含函数和全局变量的声明（以及其他内容），这就是为什么 <a class="reference external" href="../api/index.html">PROS API</a> 可以从 <code class="docutils literal notranslate"><span class="pre">include/pros/api.h</span></code> 找到的原因。起初可能很难确定哪些代码应该放在头文件（<code class="docutils literal notranslate"><span class="pre">.h</span></code>，<code class="docutils literal notranslate"><span class="pre">.hpp</span></code>），哪些应该放在源文件（<code class="docutils literal notranslate"><span class="pre">.c</span></code>，<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>）中，但这是一项非常有用的技巧，值得去学习。</li>
+<li><a class="reference external" href="https://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output">printf()</a>：
+在开发 PROS 代码的某些时候，你可能希望获得关于变量值的一些反馈。这并不能完全替换完整的调试工具，但这是大多数语言中定位问题的标准方法，而且可以用于查看传感器值或你自己的变量值。这些 <code class="docutils literal notranslate"><span class="pre">printf()</span></code> 语句的输出可以通过执行 <code class="docutils literal notranslate"><span class="pre">pros</span> <span class="pre">terminal</span></code> 在终端显示。</li>
+<li><a class="reference external" href="../tutorials/topical/multitasking.html">任务</a>
+PROS 的萌新经常会用户忘记在他们的任务中（这包括 <code class="docutils literal notranslate"><span class="pre">opcontrol()</span></code>）包含一个 <code class="docutils literal notranslate"><span class="pre">delay()</span></code> 语句，资源和处理器会阻塞，影响 PROS 内核正常运行。每个无限循环，如 <code class="docutils literal notranslate"><span class="pre">opcontrol()</span></code> 中的那个，需要有一个延迟语句。我们建议至少
+2 毫秒。</li>
+</ul>
+<p>此外，要浏览更多 C 语言教程，访问 <a class="reference external" href="https://www.cprogramming.com/tutorial/c-tutorial.html">CProgramming.com</a>
+或 <a class="reference external" href="http://www.studytonight.com/c/overview-of-c.php">StudyTonight</a>。在
+<a class="reference external" href="https://youtu.be/nXvy5900m3M">YouTube</a> 上可以找到一个不错的视频教程系列（不同于上述文本教程）。</p>
+</div>
+<div class="section" id="c-c-pros">
+<h2>我了解 C/C++，该怎么使用 PROS 呢？<a class="headerlink" href="#c-c-pros" title="永久链接至标题">¶</a></h2>
+<p>PROS 教程旨在展示如何将 C/C++ 编程应用到 PROS 项目。<a class="reference external" href="../tutorials/walkthrough/clawbot.html">为爪爪机器人编程</a> 教程是一个很好的起点，因为它完成一个示例 PROS 项目的每一步。一旦你准备分支出来，创建自己的自定义项目了，建议浏览以下教程：</p>
+<ul class="simple">
+<li><a class="reference external" href="../tutorials/general/project-structure.html">PROS 项目结构</a></li>
+<li><a class="reference external" href="../tutorials/topical/wireless-upload.html">无线上传及冷热插拔</a></li>
+<li><a class="reference external" href="../tutorials/general/debugging.html">调试</a></li>
+<li><a class="reference external" href="./faq.html">常见问题</a></li>
+</ul>
+<p>之后，你还能浏览从 <a class="reference external" href="../tutorials/topical/adi.html">模拟数字接口</a> 到 <a class="reference external" href="../tutorials/topical/multitasking.html">任务与多线程</a> 的各类专题教程。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="windows.html" class="btn btn-neutral float-right" title="在 Windows 上安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="入门" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions: </span>
+      v: V5 (3.1.6)
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../index.html">V5</a></dd>
+        
+          <dd><a href="../../cortex/index.html">Cortex</a></dd>
+        
+      </dl>
+    </div>
+  </div>
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

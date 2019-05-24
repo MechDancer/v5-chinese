@@ -1,0 +1,1153 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Conductor 使用说明 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+    <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="搜索" href="../search.html"/>
+    <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../index.html"/>
+        <link rel="up" title="CLI" href="index.html"/>
+        <link rel="next" title="编辑器" href="../editor/index.html"/>
+        <link rel="prev" title="CLI" href="index.html"/>
+  
+   
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PROS for V5（中文）
+          
+
+          
+            
+            <img src="../_static/logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  V5 (3.1.6)
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">主页</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">PROS：文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blog/index.html">博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">版本发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">获得帮助</a></li>
+</ul>
+<p class="caption"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/new-users.html">PROS 初学者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/installation.html">安装指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/c/index.html">C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/cpp/index.html">C++ API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">工具</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CLI</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conductor 使用说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">常见任务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">创建模板</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pros-conduct">pros conduct</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-apply">apply</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-fetch">fetch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-info-project">info-project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-install">install</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-new-project">new-project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-query-templates">query-templates</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-uninstall">uninstall</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#pros-conduct-upgrade">upgrade</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#pros-conduct-create-template">pros conduct create-template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">编辑器</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OkapiLib</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/index.html">OkapiLib 文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../okapi/api/index.html">OkapiLib API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extended/index.html">Extended API Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PROS for V5（中文）</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">CLI</a> &raquo;</li>
+        
+      <li>Conductor 使用说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/MechDancer/pros-docs/blob/master/v5-chinese/cli/conductor.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="conductor">
+<h1>Conductor 使用说明<a class="headerlink" href="#conductor" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Conductor 是 PROS 的模板和工程管理工具。它负责解析 PROS 内核和用户库的版本，还向其他 PROS 工具提供项目的信息。例如，向上传工具提供目标平台（像是 V5 或者 Cortex）。</p>
+<p>这有 Conductor 功能的几个核心概念：</p>
+<ul class="simple">
+<li>模板：模板是对一组文件的描述。他们有名字、版本号、支持目标平台，以及可能有的其他元数据。模板通常有三种形式：远程、本地、已安装。远程模板是可以下载的模板；本地模板是下载好，可以安装到项目中的模板，即便在脱机的时候；已安装的模板是已经拷贝至项目的。</li>
+<li>仓库：仓库是到远程模板储存的连接器。Conductor
+不需要任何特定的方法来访问远程模板，但他们通常可以从 HTTP 下载链接获得。也可是实现
+SCP、FTP，或其他类型的文件传输仓库。默认的仓库被称作
+pros-mainline，是官方的模板仓库。</li>
+<li>项目： 项目是一组用户文件和模板文件。它们本身并不包含太多信息——只是包含目标平台和一个已安装模板的列表。PROS Conductor 维护这两个来源模板的文件列表：用户文件和系统文件。升级项目时用户文件不会被替换，并且每次替换的是系统文件。</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>常见任务<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>创建新项目</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-0-0 docutils container">
+<div class="docutils container">
+Terminal</div>
+</div>
+<div class="item sphinx-data-tab-0-1 docutils container">
+<div class="docutils container">
+PROS Editor</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active docutils container">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> pros conduct new-project ./Top-5-At-Worlds v5
+<span class="go">Updating pros-mainline... Done</span>
+<span class="go">Downloading kernel@3.0.7 (https://www.cs.purdue.edu/~brookea/kernel@3.0.7.zip) [####################################] 100%</span>
+<span class="go">Extracting kernel@3.0.7 [####################################] 100%</span>
+<span class="go">Fetched kernel@3.0.7 from pros-mainline depot</span>
+<span class="go">Adding kernel@3.0.7 to registry...Done</span>
+<span class="go">Applying kernel@3.0.7 [####################################] 100%</span>
+<span class="go">Finished applying kernel@3.0.7 to ./Top-5-At-Worlds</span>
+<span class="go">Downloading okapilib@3.0.1 (https://www.cs.purdue.edu/~berman5/okapilib@3.0.1.zip) [####################################] 100%</span>
+<span class="go">Extracting okapilib@3.0.1 [####################################] 100%</span>
+<span class="go">Fetched okapilib@3.0.1 from pros-mainline depot</span>
+<span class="go">Adding okapilib@3.0.1 to registry...Done</span>
+<span class="go">Applying okapilib@3.0.1 [####################################] 100%</span>
+<span class="go">Finished applying okapilib@3.0.1 to ./Top-5-At-Worlds</span>
+<span class="go">New PROS Project was created:</span>
+<span class="go">PROS Project for v5 at: /home/me/Top-5-At-Worlds (Top-5-At-Worlds)</span>
+<span class="go">Name      Version    Origin</span>
+<span class="go">--------  ---------  -------------</span>
+<span class="go">kernel    3.0.7      pros-mainline</span>
+<span class="go">okapilib  3.0.1      pros-mainline</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-1 docutils container">
+Coming soon!</div>
+</div>
+<p>安装/升级新模板</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-1-0 docutils container">
+<div class="docutils container">
+Terminal</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-1-0 active docutils container">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> pros conduct apply okapilib
+</pre></div>
+</div>
+</div>
+</div>
+<p>获取远程模板</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-2-0 docutils container">
+<div class="docutils container">
+Terminal</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-2-0 active docutils container">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> pros conduct fetch kernel <span class="m">3</span>.1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>获取本地模板存档</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-3-0 docutils container">
+<div class="docutils container">
+Terminal</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-3-0 active docutils container">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> pros conduct fetch mylibrary@1.0.0.zip
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>创建模板<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>模板：模板是对一组文件的描述。所有 PROS
+项目都很容易创建模板。在项目的Makefile 中更改以下部分，之后运行 <code class="docutils literal notranslate"><span class="pre">pros</span> <span class="pre">make</span> <span class="pre">template</span></code>
+创建模板。</p>
+<p>你应该：</p>
+<ul class="simple">
+<li>将 <code class="docutils literal notranslate"><span class="pre">IS_LIBRARY:=0</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">IS_LIBRARY:=1</span></code></li>
+<li>将 <code class="docutils literal notranslate"><span class="pre">LIBNAME</span></code> 改为你的库的名字</li>
+<li>将 <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> 改为你的库的版本</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">pros</span> <span class="pre">make</span> <span class="pre">template</span></code> 的默认行为是编译/打包项目中所有的源码，除了列在 <code class="docutils literal notranslate"><span class="pre">EXCLUDE_SRC_FROM_LIB</span></code> 中的。此外，你创建的每个头文件都将捆绑在一起。更确切地说，
+任何没有被模板添加的头文件都包括在内。</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Set this to 1 to add additional rules to compile your project as a PROS library template</span>
+<span class="nv">IS_LIBRARY</span><span class="o">:=</span><span class="m">0</span>
+<span class="c"># TODO: CHANGE THIS!</span>
+<span class="nv">LIBNAME</span><span class="o">:=</span>libbest
+<span class="nv">VERSION</span><span class="o">:=</span><span class="m">1</span>.0.0
+<span class="c"># EXCLUDE_SRC_FROM_LIB= $(SRCDIR)/unpublishedfile.c</span>
+<span class="c"># this line excludes opcontrol.c and similar files</span>
+<span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>foreach file, <span class="k">$(</span>SRCDIR<span class="k">)</span>/opcontrol <span class="k">$(</span>SRCDIR<span class="k">)</span>/initialize <span class="k">$(</span>SRCDIR<span class="k">)</span>/autonomous,<span class="k">$(</span>foreach cext,<span class="k">$(</span>CEXTS<span class="k">)</span>,<span class="k">$(</span>file<span class="k">)</span>.<span class="k">$(</span>cext<span class="k">))</span> <span class="k">$(</span>foreach cxxext,<span class="k">$(</span>CXXEXTS<span class="k">)</span>,<span class="k">$(</span>file<span class="k">)</span>.<span class="k">$(</span>cxxext<span class="k">)))</span>
+<span class="c"># files that get distributed to every user (beyond your source archive) - add</span>
+<span class="c"># whatever files you want here. This line is configured to add all header files</span>
+<span class="c"># that are in the the include directory get exported</span>
+<span class="nv">TEMPLATE_FILES</span><span class="o">=</span><span class="k">$(</span>INCDIR<span class="k">)</span>/**/*.h <span class="k">$(</span>INCDIR<span class="k">)</span>/**/*.hpp
+</pre></div>
+</div>
+<p>对于创建模板的高级用法，你可以用自定义参数修改 <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>，然后运行 <code class="docutils literal notranslate"><span class="pre">pros</span> <span class="pre">conduct</span> <span class="pre">create-template</span></code>。</p>
+</div>
+<div class="section" id="id4">
+<h2>参考<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="pros-conduct">
+<h3>pros conduct<a class="headerlink" href="#pros-conduct" title="永久链接至标题">¶</a></h3>
+<p>Conductor is PROS’s project management facility. It is responsible for obtaining
+templates for which to create projects from.</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<div class="section" id="pros-conduct-apply">
+<h4>apply<a class="headerlink" href="#pros-conduct-apply" title="永久链接至标题">¶</a></h4>
+<p>Upgrade or install a template to a PROS project</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct apply <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-upgrade">
+<code class="descname">--upgrade</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-upgrade</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-upgrade" title="永久链接至目标">¶</a></dt>
+<dd><p>Allow upgrading templates in a project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-install">
+<code class="descname">--install</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-install</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-install" title="永久链接至目标">¶</a></dt>
+<dd><p>Allow installing templates in a project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-download">
+<code class="descname">--download</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-download</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-download" title="永久链接至目标">¶</a></dt>
+<dd><p>Allow downloading templates or only allow local templates</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-upgrade-user-files">
+<code class="descname">--upgrade-user-files</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-upgrade-user-files</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-upgrade-user-files" title="永久链接至目标">¶</a></dt>
+<dd><p>Replace all user files in a template</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-force">
+<code class="descname">--force</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-force" title="永久链接至目标">¶</a></dt>
+<dd><p>Force all system files to be inserted into the project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-force-apply">
+<code class="descname">--force-apply</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-force-apply" title="永久链接至目标">¶</a></dt>
+<dd><p>Force apply the template, disregarding if the template is already installed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-remove-empty-dirs">
+<code class="descname">--remove-empty-dirs</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-remove-empty-dirs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-remove-empty-dirs" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove empty directories when removing files</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-project">
+<code class="descname">--project</code><code class="descclassname"> &lt;project&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-apply-project" title="永久链接至目标">¶</a></dt>
+<dd><p>PROS Project directory or file  [default: .; required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-apply-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-apply-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-apply-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-apply-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-fetch">
+<h4>fetch<a class="headerlink" href="#pros-conduct-fetch" title="永久链接至标题">¶</a></h4>
+<p>Fetch/download a template from a depot.</p>
+<p>Only a template spec is required. A template spec is the name and version
+of the template formatted as <a class="reference external" href="mailto:name&#37;&#52;&#48;version">name<span>&#64;</span>version</a> (<a class="reference external" href="mailto:libblrs&#37;&#52;&#48;1&#46;0&#46;0">libblrs<span>&#64;</span>1<span>&#46;</span>0<span>&#46;</span>0</a>). Semantic version
+ranges are accepted (e.g., <a class="reference external" href="mailto:libblrs&#37;&#52;&#48;^1&#46;0&#46;0">libblrs<span>&#64;</span>^1<span>&#46;</span>0<span>&#46;</span>0</a>). The version parameter is also
+optional (e.g., libblrs)</p>
+<p>Additional parameters are available according to the depot.</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct fetch <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-fetch-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-fetch-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-fetch-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-fetch-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-fetch-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-fetch-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-fetch-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-fetch-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-fetch-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-fetch-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-info-project">
+<h4>info-project<a class="headerlink" href="#pros-conduct-info-project" title="永久链接至标题">¶</a></h4>
+<p>Display information about a PROS project</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct info-project <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-ls-upgrades">
+<code class="descname">--ls-upgrades</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-ls-upgrades</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-ls-upgrades" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-project">
+<code class="descname">--project</code><code class="descclassname"> &lt;project&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-project" title="永久链接至目标">¶</a></dt>
+<dd><p>PROS Project directory or file  [default: .; required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-info-project-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-info-project-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-install">
+<h4>install<a class="headerlink" href="#pros-conduct-install" title="永久链接至标题">¶</a></h4>
+<p>Install a library into a PROS project</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct install <span class="o">[</span>OPTIONS<span class="o">]</span> QUERY...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-upgrade">
+<code class="descname">--upgrade</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-upgrade</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-upgrade" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-download">
+<code class="descname">--download</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-download</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-download" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-force-user">
+<code class="descname">--force-user</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-force-user" title="永久链接至目标">¶</a></dt>
+<dd><p>Replace all user files in a template</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-f">
+<code class="descname">-f</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--force-system</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-f" title="永久链接至目标">¶</a></dt>
+<dd><p>Force all system files to be inserted into the project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-force-apply">
+<code class="descname">--force-apply</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-force-apply" title="永久链接至目标">¶</a></dt>
+<dd><p>Force apply the template, disregarding if the template is already installed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-remove-empty-dirs">
+<code class="descname">--remove-empty-dirs</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-remove-empty-dirs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-remove-empty-dirs" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove empty directories when removing files</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-project">
+<code class="descname">--project</code><code class="descclassname"> &lt;project&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-install-project" title="永久链接至目标">¶</a></dt>
+<dd><p>PROS Project directory or file  [default: .; required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-install-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-install-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-install-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-install-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-new-project">
+<h4>new-project<a class="headerlink" href="#pros-conduct-new-project" title="永久链接至标题">¶</a></h4>
+<p>Create a new PROS project</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct new-project <span class="o">[</span>OPTIONS<span class="o">]</span> PATH <span class="o">[</span>TARGET<span class="o">]</span> <span class="o">[</span>VERSION<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-force-user">
+<code class="descname">--force-user</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-force-user" title="永久链接至目标">¶</a></dt>
+<dd><p>Replace all user files in a template</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-f">
+<code class="descname">-f</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--force-system</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-f" title="永久链接至目标">¶</a></dt>
+<dd><p>Force all system files to be inserted into the project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-force-refresh">
+<code class="descname">--force-refresh</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-force-refresh" title="永久链接至目标">¶</a></dt>
+<dd><p>Force update all remote depots, ignoring automatic update checks  [default: False]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-no-default-libs">
+<code class="descname">--no-default-libs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-no-default-libs" title="永久链接至目标">¶</a></dt>
+<dd><p>Do not install any default libraries after creating the project.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-compile-after">
+<code class="descname">--compile-after</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-compile-after" title="永久链接至目标">¶</a></dt>
+<dd><p>Compile the project after creation  [default: True]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-build-cache">
+<code class="descname">--build-cache</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-build-cache" title="永久链接至目标">¶</a></dt>
+<dd><p>Build compile commands cache after creation. Overrides –compile-after if both are specified.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-arg-path">
+<code class="descname">PATH</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-arg-path" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-arg-target">
+<code class="descname">TARGET</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-arg-target" title="永久链接至目标">¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-new-project-arg-version">
+<code class="descname">VERSION</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-new-project-arg-version" title="永久链接至目标">¶</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-query-templates">
+<h4>query-templates<a class="headerlink" href="#pros-conduct-query-templates" title="永久链接至标题">¶</a></h4>
+<p>Query local and remote templates based on a spec</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct query-templates <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>QUERY<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-allow-offline">
+<code class="descname">--allow-offline</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-offline</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-allow-offline" title="永久链接至目标">¶</a></dt>
+<dd><p>(Dis)allow offline templates in the listing  [default: True]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-allow-online">
+<code class="descname">--allow-online</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-online</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-allow-online" title="永久链接至目标">¶</a></dt>
+<dd><p>(Dis)allow online templates in the listing  [default: True]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-force-refresh">
+<code class="descname">--force-refresh</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-force-refresh" title="永久链接至目标">¶</a></dt>
+<dd><p>Force update all remote depots, ignoring automatic update checks  [default: False]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-limit">
+<code class="descname">--limit</code><code class="descclassname"> &lt;limit&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-limit" title="永久链接至目标">¶</a></dt>
+<dd><p>Limit displayed results.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-query-templates-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-query-templates-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-uninstall">
+<h4>uninstall<a class="headerlink" href="#pros-conduct-uninstall" title="永久链接至标题">¶</a></h4>
+<p>Uninstall a template from a PROS project</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct uninstall <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>QUERY<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-remove-user">
+<code class="descname">--remove-user</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-remove-user" title="永久链接至目标">¶</a></dt>
+<dd><p>Also remove user files</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-remove-empty-dirs">
+<code class="descname">--remove-empty-dirs</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-remove-empty-dirs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-remove-empty-dirs" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove empty directories when removing files</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-project">
+<code class="descname">--project</code><code class="descclassname"> &lt;project&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-project" title="永久链接至目标">¶</a></dt>
+<dd><p>PROS Project directory or file  [default: .; required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-uninstall-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-uninstall-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pros-conduct-upgrade">
+<h4>upgrade<a class="headerlink" href="#pros-conduct-upgrade" title="永久链接至标题">¶</a></h4>
+<p>Upgrade a PROS project or one of its libraries</p>
+<p>Visit <a class="reference external" href="https://pros.cs.purdue.edu/v5/cli/conductor">https://pros.cs.purdue.edu/v5/cli/conductor</a> to learn more</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct upgrade <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>QUERY<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-install">
+<code class="descname">--install</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-install</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-install" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-download">
+<code class="descname">--download</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-download</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-download" title="永久链接至目标">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-force-user">
+<code class="descname">--force-user</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-force-user" title="永久链接至目标">¶</a></dt>
+<dd><p>Replace all user files in a template</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-f">
+<code class="descname">-f</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--force-system</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-f" title="永久链接至目标">¶</a></dt>
+<dd><p>Force all system files to be inserted into the project</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-force-apply">
+<code class="descname">--force-apply</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-force-apply" title="永久链接至目标">¶</a></dt>
+<dd><p>Force apply the template, disregarding if the template is already installed.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-remove-empty-dirs">
+<code class="descname">--remove-empty-dirs</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-remove-empty-dirs</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-remove-empty-dirs" title="永久链接至目标">¶</a></dt>
+<dd><p>Remove empty directories when removing files</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-project">
+<code class="descname">--project</code><code class="descclassname"> &lt;project&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-project" title="永久链接至目标">¶</a></dt>
+<dd><p>PROS Project directory or file  [default: .; required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-upgrade-arg-query">
+<code class="descname">QUERY</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-upgrade-arg-query" title="永久链接至目标">¶</a></dt>
+<dd><p>Optional argument(s)</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="pros-conduct-create-template">
+<h3>pros conduct create-template<a class="headerlink" href="#pros-conduct-create-template" title="永久链接至标题">¶</a></h3>
+<p>Create a template to be used in other projects</p>
+<p>Templates primarily consist of the following fields: name, version, and
+files to install.</p>
+<p>Templates have two types of files: system files and user files. User files
+are files in a template intended to be modified by users - they are not
+replaced during upgrades or removed by default when a library is uninstalled.
+System files are files that are for the “system.” They get replaced every
+time the template is upgraded. The default PROS project is a template. The user
+files are files like src/opcontrol.c and src/initialize.c, and the system files
+are files like firmware/libpros.a and include/api.h.</p>
+<p>You should specify the –system and –user options multiple times to include
+more than one file. Both flags also accept glob patterns. When a glob pattern is
+provided and inside a PROS project, then all files that match the pattern that
+are NOT supplied by another template are included.</p>
+<p>Example usage:</p>
+<p>pros conduct create-template . libblrs 2.0.1 –system “firmware/<em>.a” –system “include/</em>.h”</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pros conduct create-template <span class="o">[</span>OPTIONS<span class="o">]</span> PATH NAME VERSION
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-system">
+<code class="descname">--system</code><code class="descclassname"> &lt;system_files&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-system" title="永久链接至目标">¶</a></dt>
+<dd><p>Specify “system” files required by the template</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-user">
+<code class="descname">--user</code><code class="descclassname"> &lt;user_files&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-user" title="永久链接至目标">¶</a></dt>
+<dd><p>Specify files that are intended to be modified by users</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-kernels">
+<code class="descname">--kernels</code><code class="descclassname"> &lt;supported_kernels&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-kernels" title="永久链接至目标">¶</a></dt>
+<dd><p>Specify supported kernels</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-target">
+<code class="descname">--target</code><code class="descclassname"> &lt;target&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-target" title="永久链接至目标">¶</a></dt>
+<dd><p>Specify the target platform (cortex or v5)</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-destination">
+<code class="descname">--destination</code><code class="descclassname"> &lt;destination&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-destination" title="永久链接至目标">¶</a></dt>
+<dd><p>Specify an alternate destination for the created ZIP file or template descriptor</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-zip">
+<code class="descname">--zip</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--no-zip</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-zip" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a ZIP file or create a template descriptor.</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-debug">
+<code class="descname">--debug</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-debug" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable debugging output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-verbose">
+<code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-verbose" title="永久链接至目标">¶</a></dt>
+<dd><p>Enable verbose output</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-l">
+<code class="descname">-l</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--log</code><code class="descclassname"> &lt;log&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-l" title="永久链接至目标">¶</a></dt>
+<dd><p>Logging level</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-logfile">
+<code class="descname">--logfile</code><code class="descclassname"> &lt;logfile&gt;</code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-logfile" title="永久链接至目标">¶</a></dt>
+<dd><p>Log messages to a file</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-arg-path">
+<code class="descname">PATH</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-arg-path" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-arg-name">
+<code class="descname">NAME</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-arg-name" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-pros-conduct-create-template-arg-version">
+<code class="descname">VERSION</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-pros-conduct-create-template-arg-version" title="永久链接至目标">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../editor/index.html" class="btn btn-neutral float-right" title="编辑器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="CLI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions: </span>
+      v: V5 (3.1.6)
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../index.html">V5</a></dd>
+        
+          <dd><a href="../../cortex/index.html">Cortex</a></dd>
+        
+      </dl>
+    </div>
+  </div>
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+        <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

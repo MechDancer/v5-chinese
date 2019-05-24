@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>电机 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/tabs.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../../index.html"/>
+        <link rel="up" title="教程" href="../index.html"/>
+        <link rel="next" title="多任务" href="multitasking.html"/>
+        <link rel="prev" title="LLEMU（传统 LCD 仿真器）" href="llemu.html"/>
+  
+   
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PROS for V5（中文）
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  V5 (3.1.6)
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">主页</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PROS：文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">版本发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">获得帮助</a></li>
+</ul>
+<p class="caption"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/new-users.html">PROS 初学者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation.html">安装指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id3">常规教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id5">演练教程</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#id6">专题教程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adi.html">模拟数字接口（3 线端口）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controller.html">手柄</a></li>
+<li class="toctree-l3"><a class="reference internal" href="display.html">V5 Brain 显示屏（LVGL）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filesystem.html">文件系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jinx.html">JINX 图形调试器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llemu.html">LLEMU（传统 LCD 仿真器）</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">电机</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">初始化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">简单使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">自动转动</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id6">位置环转动</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">速度环转动</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">遥测</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multitasking.html">多任务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">任务通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vision.html">视觉传感器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-upload.html">无线上传及冷热插拔</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API 主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/c/index.html">C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cpp/index.html">C++ API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">工具</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/index.html">编辑器</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OkapiLib</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/index.html">OkapiLib 文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/api/index.html">OkapiLib API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">Extended API Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PROS for V5（中文）</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">教程</a> &raquo;</li>
+        
+      <li>电机</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/MechDancer/pros-docs/blob/master/v5-chinese/tutorials/topical/motors.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>电机<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">有关与 V5 电机交互函数的完整列表，请见
+<a class="reference external" href="../../api/c/motors.html">C API</a> 和 <a class="reference external" href="../../api/cpp/motors.html">C++ API</a>。</p>
+</div>
+<div class="section" id="id3">
+<h2>初始化<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>V5 电机在代码中使用前应该先配置。像齿轮组或编码器单位这样的配置选项是非常重要的，应该优先考虑，以确保像 <a class="reference external" href="../../api/c/motors.html#motor-move-velocity">motor_move_velocity</a> 这样的函数能够预期工作。</p>
+<p>在 C++ 中声明电机时，没有必要为了设置参数而多次使用构造器（除了端口号）。一个例子如下所示。</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-Qw== docutils container">
+<div class="docutils container">
+C</div>
+</div>
+<div class="item sphinx-data-tab-Qysr docutils container">
+<div class="docutils container">
+C++</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qw== active docutils container">
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">initialize.c</span><a class="headerlink" href="#id11" title="永久链接至代码">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+
+<span class="kt">void</span> <span class="nf">initialize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">motor_set_gearing</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="n">E_MOTOR_GEARSET_18</span><span class="p">);</span>
+  <span class="n">motor_set_reversed</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n">motor_set_encoder_units</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="n">E_MOTOR_ENCODER_DEGREES</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qysr docutils container">
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">initialize.cpp</span><a class="headerlink" href="#id12" title="永久链接至代码">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+
+<span class="kt">void</span> <span class="nf">initialize</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">drive_left_initializer</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="n">E_MOTOR_GEARSET_18</span><span class="p">,</span> <span class="nb">true</span><span class="p">,</span> <span class="n">E_MOTOR_ENCODER_DEGREES</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">opcontrol.cpp</span><a class="headerlink" href="#id13" title="永久链接至代码">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+
+<span class="kt">void</span> <span class="nf">opcontrol</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">drive_left</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">);</span>
+  <span class="c1">// drive_left will have the same configuration as drive_left_initializer</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>简单使用<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>与电机交互的最简单的方式是通过 <a class="reference external" href="../../api/c/motors.html#motor-move">motor_move</a>
+函数。这类似于 PROS 2 中的
+<a class="reference external" href="../../../cortex/api/index.html#motorSet">motorSet</a>。</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-Qw== docutils container">
+<div class="docutils container">
+C</div>
+</div>
+<div class="item sphinx-data-tab-Qysr docutils container">
+<div class="docutils container">
+C++</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qw== active docutils container">
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">opcontrol.c</span><a class="headerlink" href="#id14" title="永久链接至代码">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+
+<span class="kt">void</span> <span class="nf">opcontrol</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">motor_move</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="n">controller_get_analog</span><span class="p">(</span><span class="n">E_CONTROLLER_MASTER</span><span class="p">,</span> <span class="n">E_CONTROLLER_ANALOG_LEFT_Y</span><span class="p">));</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qysr docutils container">
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">opcontrol.cpp</span><a class="headerlink" href="#id15" title="永久链接至代码">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+
+<span class="kt">void</span> <span class="nf">opcontrol</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">drive_left</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">);</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Controller</span> <span class="n">master</span> <span class="p">(</span><span class="n">E_CONTROLLER_MASTER</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">drive_left</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">master</span><span class="p">.</span><span class="n">get_analog</span><span class="p">(</span><span class="n">E_CONTROLLER_ANALOG_LEFT_Y</span><span class="p">));</span>
+    <span class="n">pros</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>自动转动<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>V5 电机可以用多种不同的方式转动，这些都比上面所示简单 <code class="docutils literal notranslate"><span class="pre">motor_move()</span></code>
+更加适合自动运动（autonomous movement）。</p>
+<div class="section" id="id6">
+<h3>位置环转动<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>位置环转动（Profile movements）是给定角度、由电机固件执行的转动。有两个函数可以实现这一点，<code class="docutils literal notranslate"><span class="pre">motor_move_absolute()</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">motor_move_relative()</span></code>。这两个函数实际上是相似的，但
+<code class="docutils literal notranslate"><span class="pre">motor_move_relative()</span></code> 考虑了电机编码器的零位。</p>
+<p>这些函数更加适合自动运动。</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-Qw== docutils container">
+<div class="docutils container">
+C</div>
+</div>
+<div class="item sphinx-data-tab-Qysr docutils container">
+<div class="docutils container">
+C++</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qw== active docutils container">
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">autonomous.c</span><a class="headerlink" href="#id16" title="永久链接至代码">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+<span class="cp">#define MOTOR_MAX_SPEED 100 </span><span class="c1">// 电机使用 36 号齿轮组</span>
+
+<span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">motor_move_relative</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// 这将向前转动 1000 刻度</span>
+  <span class="n">motor_move_relative</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// T这又向前转动 1000 刻度</span>
+  <span class="n">motor_move_absolute</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// 这会向后转动 1000 刻度到达绝对的 1000 刻度</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qysr docutils container">
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">autonomous.cpp</span><a class="headerlink" href="#id17" title="永久链接至代码">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+<span class="cp">#define MOTOR_MAX_SPEED 100 </span><span class="c1">// 电机使用 36 号齿轮组</span>
+
+<span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">drive_left</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">);</span>
+  <span class="n">drive_left</span><span class="p">.</span><span class="n">move_relative</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// 这将向前转动 1000 刻度</span>
+  <span class="n">drive_left</span><span class="p">.</span><span class="n">move_relative</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// 这又向前转动 1000 刻度</span>
+  <span class="n">drive_left</span><span class="p">.</span><span class="n">move_absolute</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="c1">// 这会向后转动 1000 刻度到以达绝对的 1000 刻度</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+<p>有关创建这些位置环转动算法的更多阅读材料，请见
+<a class="reference external" href="https://en.wikipedia.org/wiki/Feed_forward_(control)">前馈</a> 控制的
+<a class="reference external" href="https://pdfs.semanticscholar.org/a229/fdba63d8d68abd09f70604d56cc07ee50f7d.pdf">Mathematics of Motion Control Profiles</a>
+和 <a class="reference external" href="https://en.wikipedia.org/wiki/Control_theory#PID_feedback_control">反馈</a> 控制的
+<a class="reference external" href="http://georgegillard.com/documents/2-introduction-to-pid-controllers">George Gillard’s PID Explanation</a>。</p>
+</div>
+<div class="section" id="id9">
+<h3>速度环转动<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>最后一个 PROS 电机 API 可用的 <cite>转动</cite> 函数是 <code class="docutils literal notranslate"><span class="pre">motor_move_velocity()</span></code>。它保证了电机输出的速度是不变的，通过<a class="reference external" href="http://georgegillard.com/documents/2-introduction-to-pid-controllers">PID</a> 实现。</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-Qw== docutils container">
+<div class="docutils container">
+C</div>
+</div>
+<div class="item sphinx-data-tab-Qysr docutils container">
+<div class="docutils container">
+C++</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qw== active docutils container">
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">autonomous.c</span><a class="headerlink" href="#id18" title="永久链接至代码">¶</a></div>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+<span class="cp">#define MOTOR_MAX_SPEED 100 </span><span class="c1">// 电机使用 36 号齿轮组</span>
+
+<span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">motor_move_velocity</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// 满速运行 1 秒</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-Qysr docutils container">
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">autonomous.cpp</span><a class="headerlink" href="#id19" title="永久链接至代码">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#define MOTOR_PORT 1</span>
+<span class="cp">#define MOTOR_MAX_SPEED 100 </span><span class="c1">// 电机使用 36 号齿轮组</span>
+
+<span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">drive_left</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">);</span>
+  <span class="n">drive_left</span><span class="p">.</span><span class="n">move_velocity</span><span class="p">(</span><span class="n">MOTOR_MAX_SPEED</span><span class="p">);</span>
+  <span class="n">pros</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// 满速运行 1 秒</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>遥测<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>V5 电机返回大量关于性能的诊断信息。电机返回以下参数：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="29%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">参数</th>
+<th class="head">C 函数</th>
+<th class="head">C++ 函数</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>位置</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-position">motor_get_position</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-position">pros::Motor::get_position</a></td>
+</tr>
+<tr class="row-odd"><td>速度</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-actual-velocity">motor_get_actual_velocity</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-actual-velocity">pros::Motor::get_actual_velocity</a></td>
+</tr>
+<tr class="row-even"><td>电流</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-current-draw">motor_get_current_draw</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-current-draw">pros::Motor::get_current_draw</a></td>
+</tr>
+<tr class="row-odd"><td>效率</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-efficiency">motor_get_efficiency</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-efficiency">pros::Motor::get_efficiency</a></td>
+</tr>
+<tr class="row-even"><td>功率</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-power">motor_get_power</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-power">pros::Motor::get_power</a></td>
+</tr>
+<tr class="row-odd"><td>温度</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-temperature">motor_get_temperature</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-temperature">pros::Motor::get_temperature</a></td>
+</tr>
+<tr class="row-even"><td>转距</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-torque">motor_get_torque</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-torque">pros::Motor::get_torque</a></td>
+</tr>
+<tr class="row-odd"><td>电压</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-voltage">motor_get_voltage</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-voltage">pros::Motor::get_voltage</a></td>
+</tr>
+<tr class="row-even"><td>方向</td>
+<td><a class="reference external" href="../../api/c/motors.html#motor-get-direction">motor_get_direction</a></td>
+<td><a class="reference external" href="../../api/cpp/motors.html#get-direction">pros::Motor::get_direction</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multitasking.html" class="btn btn-neutral float-right" title="多任务" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="llemu.html" class="btn btn-neutral" title="LLEMU（传统 LCD 仿真器）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions: </span>
+      v: V5 (3.1.6)
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../index.html">V5</a></dd>
+        
+          <dd><a href="../../../cortex/index.html">Cortex</a></dd>
+        
+      </dl>
+    </div>
+  </div>
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/sphinx_tabs/tabs.js"></script>
+        <script type="text/javascript" src="../../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>项目结构 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../../index.html"/>
+        <link rel="up" title="教程" href="../index.html"/>
+        <link rel="next" title="通用常见问题" href="usage-faq.html"/>
+        <link rel="prev" title="调试" href="debugging.html"/>
+  
+   
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PROS for V5（中文）
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  V5 (3.1.6)
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">主页</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PROS：文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">版本发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">获得帮助</a></li>
+</ul>
+<p class="caption"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/new-users.html">PROS 初学者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation.html">安装指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#id3">常规教程</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="coding-faq.html">编码常见问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="combining-c-cpp.html">结合 C 与 C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">项目结构</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#firmware">firmware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#include">include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#src">src</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="usage-faq.html">通用常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id5">演练教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id6">专题教程</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/c/index.html">C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cpp/index.html">C++ API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">工具</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/index.html">编辑器</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OkapiLib</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/index.html">OkapiLib 文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/api/index.html">OkapiLib API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">Extended API Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PROS for V5（中文）</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">教程</a> &raquo;</li>
+        
+      <li>项目结构</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/MechDancer/pros-docs/blob/master/v5-chinese/tutorials/general/project-structure.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>项目结构<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>PROS 项目在内由三部分组成：<strong>PROS 库</strong> （位于
+<code class="docutils literal notranslate"><span class="pre">/firmware</span></code>)、<strong>头</strong> 文件（位于 <code class="docutils literal notranslate"><span class="pre">/include</span></code>）、<strong>用户代码</strong>（位于 <code class="docutils literal notranslate"><span class="pre">/src</span></code>）。</p>
+<div class="section" id="firmware">
+<h2>firmware<a class="headerlink" href="#firmware" title="永久链接至标题">¶</a></h2>
+<p><strong>PROS 库</strong> 是一个包含 PROS 核心例程的单个文件。该文件不需要更改。如果核心 PROS 函数出现问题，请在 <a class="reference external" href="https://github.com/purduesigbots/pros/issues">GitHub</a>
+提出 issue。</p>
+</div>
+<div class="section" id="include">
+<h2>include<a class="headerlink" href="#include" title="永久链接至标题">¶</a></h2>
+<p>所有 <strong>头</strong> 文件都可在 <code class="docutils literal notranslate"><span class="pre">include</span></code> 目录找到。 One
+header file, <a class="reference external" href="../../api/index.html">api.h</a>, is required to declare
+the PROS library functions. This file exists merely to include the individual
+PROS API headers, all of which can be found in <code class="docutils literal notranslate"><span class="pre">include/pros</span></code>. Each header file
+in this directory covers a specific aspect of interacting with the V5 hardware,
+and correlates to the files found in the <a class="reference external" href="../../api/index.html">API documentation</a>.</p>
+<p>另一个文件 <code class="docutils literal notranslate"><span class="pre">main.h</span></code> 旨在声明用户代码文件之间共享的函数和变量。<code class="docutils literal notranslate"><span class="pre">main.h</span></code> 还还提供各种可配置选项，根据你的需求定制PROS。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">PROS_USE_SIMPLE_NAMES</span></code>：如果定义了这个，一些常用的枚举将会被预处理器宏赋予更短、更方便的命名模式。举个例子，
+E_CONTROLLER_MASTER 将会拥有一个更短的名字 <code class="docutils literal notranslate"><span class="pre">CONTROLLER_MASTER</span></code>。尽管 <code class="docutils literal notranslate"><span class="pre">E_CONTROLLER_MASTER</span></code>
+在 PROS 风格指南中是学究式（pedantically）的正确，但对大多数学生程序员来说并不方便。</li>
+<li><code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">pros</span></code>：通过定义 <code class="docutils literal notranslate"><span class="pre">PROS_USE_SIMPLE_NAMES</span></code>
+可以取消它的注释。这减少了使用 C++ 时声明的长度，允许你仅仅声明 <code class="docutils literal notranslate"><span class="pre">Motor</span></code> 而不是 <code class="docutils literal notranslate"><span class="pre">pros::Motor</span></code>。这将使代码看起来更简洁，对新程序员来说也更简单, 但通常是
+<a class="reference external" href="https://msdn.microsoft.com/en-us/library/5cb46ksf.aspx">不好的习惯</a>。因此，默认情况下这行是被注释的。</li>
+</ul>
+<p>可以在 include 目录创建名称以 .h（传统 C）或
+.hpp（C++）结尾的头文件。有关如何创建头文件的更多信息，可以参见 <a class="reference external" href="http://www.learncpp.com/cpp-tutorial/19-header-files/">C++ 教程</a>。</p>
+</div>
+<div class="section" id="src">
+<h2>src<a class="headerlink" href="#src" title="永久链接至标题">¶</a></h2>
+<p><strong>用户代码</strong> 具有控制机器人行为的实际顺序指令。PROS 默认将用户代码分为自动（<code class="docutils literal notranslate"><span class="pre">autonomous.c</span></code> 或 <code class="docutils literal notranslate"><span class="pre">autonomous.cpp</span></code>）、遥控（<code class="docutils literal notranslate"><span class="pre">opcontrol.c</span></code> 或 <code class="docutils literal notranslate"><span class="pre">opcontrol.cpp</span></code>）、初始化（<code class="docutils literal notranslate"><span class="pre">initialize.c</span></code> 或 <code class="docutils literal notranslate"><span class="pre">initialize.cpp</span></code>）文件。一个文件中的代码可以通过头文件的声明与另一个文件中的代码进行交互。</p>
+<p>可以在 <code class="docutils literal notranslate"><span class="pre">src</span></code> 目录创建名称以<code class="docutils literal notranslate"><span class="pre">.c</span></code> 或 <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> 结尾的用户代码文件，它们会和其他文件一起编译。</p>
+<p>所有用户代码文件都应以以下内容开头：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &quot;main.h&quot;
+</pre></div>
+</div>
+<p>这将保证 PROS API 和其他关键的定义在每个文件中都可用。</p>
+<p>虽然比某些环境更复杂，但是将代码分割提供了强大的模块性和复用性，尤其是在与源码控制相结合的时候。</p>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage-faq.html" class="btn btn-neutral float-right" title="通用常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="debugging.html" class="btn btn-neutral" title="调试" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions: </span>
+      v: V5 (3.1.6)
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../index.html">V5</a></dd>
+        
+          <dd><a href="../../../cortex/index.html">Cortex</a></dd>
+        
+      </dl>
+    </div>
+  </div>
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

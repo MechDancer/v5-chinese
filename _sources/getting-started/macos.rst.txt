@@ -1,0 +1,92 @@
+===================
+在 macOS 上安装
+===================
+
+当前有两种在 macOS 上安装 PROS 3 的方式。推荐的方法是使用 `Homebrew <https://brew.sh/>`_，另一种方法是手动安装组件。
+
+推荐方式（Homebrew）
+-----------------------------
+
+推荐的方法是使用 `Homebrew <https://brew.sh/>`_。
+
+1. 如果你还没装 Homebrew 按照它的 `说明 <https://brew.sh>`_ 安装。这会花上点时间，并可能提示你遵循一些附加的说明。
+2. 当你装好了 Homebrew，运行 :code:`brew tap osx-cross/arm && brew install arm-gcc-bin` 来向包含用于构建 PROS 工程的工具链的仓库注册，然后安装工具链。
+3. 运行 :code:`brew tap purduesigbots/pros` 向 Homebrew 注册 PROS 的仓库。
+4. 运行 :code:`brew cask install pros-editor` 安装 PROS 编辑器（CLI 也会被安装）。这会花上一点时间。
+5. 就这样！你现在可以开始使用 PROS 3 了。
+
+.. note:: 如果你不想用 PROS 编辑器而只想使用 PROS CLI， :code:`brew install pros-cli` 来替换步骤 3 中的命令。
+
+其他方式
+-------------
+
+如果你不想使用 Homebrew 安装 PROS 3， 你可以手动安装组件。
+
+安装工具链
+^^^^^^^^^^^^^^^^^^^^^
+1. 在 `这里 <https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads>`_ 下载 macOS 上最新版本的 GNU Arm Embedded 工具链。
+2. 当你下载好了工具链，双击解压它。
+3. 把从 :code:`gcc-arm-none-eabi-X-20XX-qX-update` 文件夹（X 是你下载的版本）解压出来的东西复制到另一个文件夹，例如 :code:`/usr/local/lib/pros-toolchain`。
+4. 现在，你需要将工具链二进制文件链接到系统能够找到它们的地方。这有两种办法：
+
+   i) （推荐，方便更新) 运行 ``mkdir -p /usr/local/bin/pros-toolchain && ln -s /usr/local/lib/pros-toolchain/bin/* /usr/local/bin/pros-toolchain`` (将 ``/usr/local/lib/pros-toolchain`` 替换为第 4 步中你创建文件夹的路径）。最后，添加 ``/usr/local/bin/pros-toolchain`` 到 ``/etc/paths`` 文件的结尾。
+   ii) (更简单，更新没那么方便) 仅需运行 ``ln -s /usr/local/lib/pros-toolchain/bin/* /usr/local/bin``。
+
+   .. note:: 译者注：第 2 种方式同样需要将 ``/usr/local/lib/pros-toolchain`` 替换为第 4 步中你创建文件夹的位置。
+
+安装 CLI
+^^^^^^^^^^^^^^^
+1. 在 `Python 官网 <http://python.org>`_ 安装 >= 3.6 版本的 Python。
+2. 从 `这里 <https://github.com/purduesigbots/pros-cli3/releases/latest>`_ 下载 Python Wheel 文件 （.whl）来下载最新版本的 CLI。当你下载好之后，运行 :code:`python3 -m pip install ~/Downloads/pros-cli-v5_3.X.X-py3-none-any.whl` （将路径替换为你的下载的文件的）。
+
+安装编辑器
+^^^^^^^^^^^^^^^^^^
+
+.. note:: 如果你打算使用 PROS 以外的编辑器，这部分是可选的。
+
+1. 根据 `他们 WIKI <https://github.com/cquery-project/cquery/wiki/Building-cquery>`_ 上的说明构建并安装 Cquery。
+2. 在我们的 `发布页 <https://github.com/purduesigbots/atom/releases/latest>`_ 上下载 :code:`pros-editor-mac.zip`。当你下载好之后，双击解压，然后把 :code:`PROS Editor.app` 拖到 :code:`/Applications` 里。
+
+要求
+------------
+
+最低 macOS 版本： 10.8
+最低 Python 版本： 3.6
+
+已知问题
+------------
+
+:code:`RuntimeError: Click will abort further execution because Python 3 was configured
+to use ASCII as encoding for the environment.`
+
+If you are using the PROS Editor, open up your init script (File > Init Script) and add the following two lines:
+
+.. code-block:: coffee
+
+   process.env.LANG = 'en_US.utf-8'
+   process.env.LC_ALL = 'en_US.utf-8'
+
+If you are just using the CLI at the Terminal:
+
+1. Open up your Terminal.
+2. Run :code:`cd` to make sure you're in your home directory.
+3. Run :code:`touch .bash_profile` to make sure you have a shell login configuration file.
+4. Edit the :code:`~/.bash_profile` file in your preferred editor (you can also run :code:`open -e .bash_profile` to edit it in TextEdit), adding the following two lines at the end:
+
+.. code-block:: bash
+
+   export LANG="en_US.utf-8"
+   export LC_ALL="en_US.utf-8"
+
+5. Run :code:`. .bash_profile` to reload the file for the current session.
+
+:code:`/bin/sh: intercept-c++: command not found`
+
+.. note:: This issue should be fixed for PROS CLI versions > 3.1.2
+
+1. Check your PROS CLI version by running :code:`prosv5 --version`. If your version is <= 3.1.2, try updating first to check if that solves your problem. If not, continue with step 2.
+2. Follow steps 1-4 listed above for those using the CLI only. In step 4, however, add the following line instead (replacing the Xs with the numbers found in step 1):
+
+.. code-block:: bash
+
+   export PATH="/usr/local/Cellar/pros-cli/3.X.X/libexec/bin:$PATH"

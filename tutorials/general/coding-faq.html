@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>编码常见问题 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+<link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="搜索" href="../../search.html"/>
+    <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../../index.html"/>
+        <link rel="up" title="教程" href="../index.html"/>
+        <link rel="next" title="结合 C 与 C++" href="combining-c-cpp.html"/>
+        <link rel="prev" title="教程" href="../index.html"/>
+  
+   
+  
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+    ul.postlist a {font-style: italic;}
+    ul.postlist-style-disc {list-style-type: disc;}
+    ul.postlist-style-none {list-style-type: none;}
+    ul.postlist-style-circle {list-style-type: circle;}
+  </style>
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PROS for V5（中文）
+          
+
+          
+            
+            <img src="../../_static/logo.svg" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                
+                  V5 (3.1.6)
+                
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">主页</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">PROS：文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../blog/index.html">博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../releases/index.html">版本发行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">获得帮助</a></li>
+</ul>
+<p class="caption"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/new-users.html">PROS 初学者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/installation.html">安装指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">教程</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">教程</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#id3">常规教程</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">编码常见问题</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">编译期问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">运行期问题</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="combining-c-cpp.html">结合 C 与 C++</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging.html">调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project-structure.html">项目结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage-faq.html">通用常见问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id5">演练教程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#id6">专题教程</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/c/index.html">C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/cpp/index.html">C++ API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">工具</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cli/index.html">CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editor/index.html">编辑器</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OkapiLib</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/index.html">OkapiLib 文档主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../okapi/api/index.html">OkapiLib API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">Extended API Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PROS for V5（中文）</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">教程</a> &raquo;</li>
+        
+      <li>编码常见问题</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/MechDancer/pros-docs/blob/master/v5-chinese/tutorials/general/coding-faq.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>编码常见问题<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>编译期问题<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span> <span class="pre">to</span> <span class="pre">...</span></code> 或 <code class="docutils literal notranslate"><span class="pre">implicit</span> <span class="pre">declaration</span> <span class="pre">of</span> <span class="pre">function</span> <span class="pre">...</span></code>:</dt>
+<dd>一个函数的名称拼写错误或函数在头文件中错误声明。自定义头文件或使用它们的文件中必须包含 <code class="docutils literal notranslate"><span class="pre">main.h</span></code>。</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">format</span> <span class="pre">...</span> <span class="pre">expects</span> <span class="pre">argument</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">...,</span> <span class="pre">but</span> <span class="pre">argument</span> <span class="pre">has</span> <span class="pre">type</span> <span class="pre">...</span></code>:</dt>
+<dd>为 <a class="reference external" href="http://www.cplusplus.com/reference/cstdio/printf/">printf</a>
+或 <a class="reference external" href="../../api/c/llemu.html#lcd-print">lcd_print</a> 等函数提供的值与从字符串、
+推断出的预期类型不匹配。在一些情况下可以安全地忽略警告，但如果类型 <code class="docutils literal notranslate"><span class="pre">double</span></code> 和 <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> 与其他类型混合则会发生崩溃。</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">assignment</span> <span class="pre">makes</span> <span class="pre">pointer</span> <span class="pre">from</span> <span class="pre">integer</span> <span class="pre">without</span> <span class="pre">a</span> <span class="pre">cast</span></code>:</dt>
+<dd>通常由于一个 C 指针使用了错误的星号来
+<a class="reference external" href="http://stackoverflow.com/a/4955297/3681958">解引用</a>，或者把一个常量赋值给 <code class="docutils literal notranslate"><span class="pre">pointer``（而不是</span> <span class="pre">``*pointer</span></code>）。</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>运行期问题<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt><strong>有些任务正在运行，有些没有运行：</strong></dt>
+<dd><p class="first last">一个任务没有使用 <a class="reference external" href="../../api/c/rtos.html#delay">delay</a> 或
+<a class="reference external" href="../../api/c/rtos.html#task-delay-until">task_delay_until</a> 等待。由于PROS使用基于优先级的非抢占式调度程序，因此优先级高于或等于阻塞任务的任务仍会运行，而优先级较低的任务不会运行。这种情况也被称为
+<a class="reference external" href="https://en.wikipedia.org/wiki/Starvation_(computer_science)">饥饿</a>。有关更多信息，请参见 <a class="reference external" href="/tutorials/topical/multitasking">任务/多线程</a>。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>VEX LCD 刷新非常慢，或冻屏：</strong></dt>
+<dd><p class="first">一个任务没有使用 <a class="reference external" href="../../api/c/rtos.html#delay">delay</a> 或
+<a class="reference external" href="../../api/c/rtos.html#task-delay-until">task_delay_until</a> 等待。从内核角度来看，更新 LCD 没有机器人运行重要。因此，PROS 优先处理用户任务而不是 LCD。</p>
+<p class="last">只有当所有其他任务都在等待时，LCD 才会更新。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>自动或遥控代码都不会启动：</strong></dt>
+<dd><p class="first"><code class="docutils literal notranslate"><span class="pre">initialize()</span></code> 函数可能仍在运行。一些任务例如
+<a class="reference external" href="../../api/c/adi.html#analog-calibrate">analog_calibrate</a> 很耗时。</p>
+<p class="last">如果 <code class="docutils literal notranslate"><span class="pre">initialize()</span></code> 函数实现了某类循环或selection routine，请确保它能够结束。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>代码意外重新启动:</strong></dt>
+<dd><p class="first last">一个运行期错误导致程序崩溃。<a class="reference external" href="./debugging">调试</a> 可能揭示错误的原因。检查任何新添加的代码是否有可能出现逻辑错误。一些常见的错误消息包括：</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Segmentation Fault:</strong></dt>
+<dd>这说明使用了无效的 C 指针。检查指针和常规变量之间是否混淆以及无效指针是否没有传递给PROS API 函数。</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Stack Overflow:</strong></dt>
+<dd>通常说明无限递归，或者自定义任务的堆栈大小太小。调用多层函数和声明大的局部变量可能需要堆栈上的大量空间。如果错误发生在像 <code class="docutils literal notranslate"><span class="pre">autonomous()</span></code> 的默认任务中，考虑更改代码以减少对栈的需求。你也可以使用 <a class="reference external" href="../../api/c/rtos.html#task_create">task_create</a>
+来创建栈较大，用于处理大型作业的任务。在函数内部声明的大型数组通常可以全局声明以减轻对栈空间的压力。</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>System Task Failure:</strong></dt>
+<dd>系统运行的任务太多，无法启动新任务。禁用或合并不必要的任务以消除此错误。</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><dl class="first docutils">
+<dt><strong>上传程序后 Cortex 闪红灯：</strong></dt>
+<dd><p class="first last">重启 Cortex 微控制器。这样通常能解决问题。而且在大多数情况下重新初始化来模拟比赛环境是一个很好的习惯如果错误仍存在，请见上面的 “<strong>代码意外重新启动</strong>” 一节。</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://www.cplusplus.com/reference/cstdio/printf/">printf</a> <strong>不起作用</strong>:</dt>
+<dd><p class="first last"><a class="reference external" href="http://www.cplusplus.com/reference/cstdio/printf/">printf</a> 通过串口连接（<a class="reference external" href="../tutorials/general/debugging">调试</a>）打印信息，
+而不是 VEX LCD。想要打印至 LCD 上，请改用
+<a class="reference external" href="../../api/c/llemu.html#lcd-print">lcd_print</a>。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+  <div class="section">
+  
+  
+  </div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="combining-c-cpp.html" class="btn btn-neutral float-right" title="结合 C 与 C++" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Versions: </span>
+      v: V5 (3.1.6)
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="../../index.html">V5</a></dd>
+        
+          <dd><a href="../../../cortex/index.html">Cortex</a></dd>
+        
+      </dl>
+    </div>
+  </div>
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
