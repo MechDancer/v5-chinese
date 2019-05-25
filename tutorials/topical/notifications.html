@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>任务通知 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>通知 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -147,9 +147,9 @@
 <li class="toctree-l3"><a class="reference internal" href="llemu.html">LLEMU（传统 LCD 仿真器）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="motors.html">电机</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multitasking.html">多任务</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">任务通知</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">通知</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vision.html">视觉传感器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wireless-upload.html">无线上传及冷热插拔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-upload.html">无线上传及冷热链接</a></li>
 </ul>
 </li>
 </ul>
@@ -220,7 +220,7 @@
         
           <li><a href="../index.html">教程</a> &raquo;</li>
         
-      <li>任务通知</li>
+      <li>通知</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -242,19 +242,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>任务通知<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>通知<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">For a full list of functions for interacting with Tasks, see its
-<a class="reference external" href="../../api/c/rtos.html">C API</a> and <a class="reference external" href="../../api/cpp/rtos.html">C++ API</a>.</p>
+<p class="last">有关与任务交互函数的完整列表，请见
+<a class="reference external" href="../../api/c/rtos.html">C API</a> 和 <a class="reference external" href="../../api/cpp/rtos.html">C++ API</a>。</p>
 </div>
-<p>Task notifications are a powerful new feature in PROS 3 which allows direct-to-task
-synchronization. Each task has a 32-bit notification value. Each task can block on its own
-notification (wait for it to become non-zero) and any task can update the notification value.
-Task notifications have a broad range of applications, are simple to use, and have significant
-memory and speed advantages when compared to traditional semaphore-based synchronization
-mechanisms.</p>
-<p>The simplest application of task notifications does not care about the task notification value:</p>
+<p>任务通知是 PROS 3 中强大的一个新功能，它允许面向任务的同步。每个任务都有一个 32 位的通知值, 可以跟据自己的通知（等待它变为非 0）来进行阻塞，其他任务可以更新这个通知值。
+与传统的基于信号量的同步机制相比，任务通知具有广泛的应用范围，以及易于使用以及在内存和速度上显著的优势。</p>
+<p>任务通知的最简单应用不关心任务通知值：</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-0-0 docutils container">

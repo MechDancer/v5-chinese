@@ -49,7 +49,7 @@
         <link rel="search" title="搜索" href="../../search.html"/>
     <link rel="top" title="PROS for V5（中文） 3.1.6 文档" href="../../index.html"/>
         <link rel="up" title="教程" href="../index.html"/>
-        <link rel="next" title="任务通知" href="notifications.html"/>
+        <link rel="next" title="通知" href="notifications.html"/>
         <link rel="prev" title="电机" href="motors.html"/>
   
    
@@ -152,13 +152,13 @@
 <li class="toctree-l5"><a class="reference internal" href="#id5">同步</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">互斥</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">通知</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">互斥</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">通知</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">任务通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">通知</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vision.html">视觉传感器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="wireless-upload.html">无线上传及冷热插拔</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wireless-upload.html">无线上传及冷热链接</a></li>
 </ul>
 </li>
 </ul>
@@ -297,8 +297,8 @@ API2</div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active docutils container">
-<div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">initialize.c</span><a class="headerlink" href="#id8" title="永久链接至代码">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">initialize.c</span><a class="headerlink" href="#id10" title="永久链接至代码">¶</a></div>
 <div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -319,8 +319,8 @@ API2</div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-1 docutils container">
-<div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">initialize.cpp</span><a class="headerlink" href="#id9" title="永久链接至代码">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">initialize.cpp</span><a class="headerlink" href="#id11" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -341,8 +341,8 @@ API2</div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-2 docutils container">
-<div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">initialize.c</span><a class="headerlink" href="#id10" title="永久链接至代码">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">initialize.c</span><a class="headerlink" href="#id12" title="永久链接至代码">¶</a></div>
 <div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -368,18 +368,9 @@ API2</div>
 </div>
 <div class="section" id="id5">
 <h3>同步<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<p>One problem which one often runs into when dealing with tasks is the
-problem of synchronization. If two tasks try to read the same sensor or
-control the same motor at the same time, unexpected behavior may occur
-since two tasks are trying to write to the same piece of data or variable
-(i.e. <a class="reference external" href="https://en.wikipedia.org/wiki/Race_condition#Software">race conditions</a>).
-The concept of writing code which has protections against race conditions
-is called thread safety. There are many different ways to implement thread safety,
-and PROS has several facilities to help maintain thread safety.</p>
-<p>The simplest way to ensure thread safety is to design tasks which will never access
-the same variables or data. You may design your code to have each subsystem of your
-robot in its own task. Ensuring that tasks never write to the same variables is called
-division of responsibility or separation of domain.</p>
+<p>在使用任务时经常遇到的一个问题就是同步。
+如果两个任务试图同时读取同一个传感器或控制同一个电机，由于两个任务同时写入同一数据或变量，（例如 <a class="reference external" href="https://en.wikipedia.org/wiki/Race_condition#Software">竞争条件</a>）可能会出现预料外的行为。编写针对竞争条件代码的概念称为线程安全。实现线程安全有许多不同的方法，PROS 也拥有几个工具来帮助维护线程安全。</p>
+<p>确保线程安全的最简单方法是设计永远不会访问相同变量或数据的任务。你可以设计机器人的每部分子系统拥有它们自己的任务。确保任务从不写入相同的变量称为责任划分（division of responsibility）或领域分离（separation of domain）。</p>
 <div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -392,28 +383,25 @@ division of responsibility or separation of domain.</p>
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="kt">int</span> <span class="n">task1_variable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
  <span class="kt">void</span> <span class="nf">Task1</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span> <span class="n">ignore</span><span class="p">)</span> <span class="p">{</span>
-     <span class="c1">// do things</span>
+     <span class="c1">// 进行一些操作</span>
      <span class="n">task1_variable</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
  <span class="p">}</span>
 
  <span class="kt">void</span> <span class="nf">Task2</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span> <span class="n">ignore</span><span class="p">)</span> <span class="p">{</span>
-   <span class="c1">// do things</span>
-   <span class="c1">// I can read task1_variable, but NOT write to it</span>
+   <span class="c1">// 进行一些操作</span>
+   <span class="c1">// 我可以读 task1_variable，但不能写</span>
    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">task1_variable</span><span class="p">);</span>
  <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Sometimes this is impossible: suppose you wanted to write a PID
-controller on its own task and you wanted to change the target of the
-PID controller. PROS features two types of synchronization structures,
-<em>mutexes</em> and <em>notifications</em> that can be used to coordinate tasks.</p>
+<p>有时候这是不可能的：假设你想在一个任务上写一个 PID
+控制器，并想改变这个控制器的目标。PROS 有两种类型的同步结构可用于协调任务，它们是：<em>互斥</em> 和 <em>通知</em>。</p>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>互斥<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
-<p>Mutexes stand for mutual exclusion; only one task can hold a mutex at any given
-time. Other tasks must wait for the first task to finish (and release
-the mutex) before they may continue.</p>
+<div class="section" id="id7">
+<h2>互斥<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>互斥，即相互排斥；在给定任何时间中，只有一个任务可以持有互斥体。、
+其他任务必须等待地一个任务完成（并释放互斥体）才能继续运行。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -436,12 +424,12 @@ C++</div>
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">mutex_t</span> <span class="n">mutex</span> <span class="o">=</span> <span class="n">mutex_create</span><span class="p">();</span>
 
-<span class="c1">// Acquire the mutex; other tasks using this command will wait until the mutex is released</span>
-<span class="c1">// timeout can specify the maximum time to wait, or MAX_DELAY to wait forever</span>
-<span class="c1">// If the timeout expires, &quot;false&quot; will be returned, otherwise &quot;true&quot;</span>
+<span class="c1">// 获取互斥体； 其他任务在使用这个命令时候会进入等待，直到互斥体释放</span>
+<span class="c1">// 超时可以指定等待的最大时间，或使用 MAX_DELAY 永久等待</span>
+<span class="c1">// 如果超时了，函数将会返回“false”，否则返回“true”</span>
 <span class="n">mutex_take</span><span class="p">(</span><span class="n">mutex</span><span class="p">,</span> <span class="n">timeout</span><span class="p">);</span>
-<span class="c1">// do some work</span>
-<span class="c1">// Release the mutex for other tasks</span>
+<span class="c1">// 进行一些操作</span>
+<span class="c1">// 为其他任务释放互斥体</span>
 <span class="n">mutex_give</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
@@ -455,25 +443,22 @@ C++</div>
 6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Mutex</span> <span class="n">mutex</span><span class="p">;</span>
-<span class="c1">// Acquire the mutex; other tasks using this command will wait until the mutex is released</span>
-<span class="c1">// timeout can specify the maximum time to wait, or MAX_DELAY to wait forever</span>
-<span class="c1">// If the timeout expires, &quot;false&quot; will be returned, otherwise &quot;true&quot;</span>
+<span class="c1">// 获取互斥体； 其他任务在使用这个命令时候会进入等待，直到互斥体释放</span>
+<span class="c1">// 超时可以指定等待的最大时间，或使用 MAX_DELAY 永久等待</span>
+<span class="c1">// 如果超时了，函数将会返回“false”，否则返回“true”</span>
 <span class="n">mutex</span><span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="n">timeout</span><span class="p">);</span>
-<span class="c1">// do some work</span>
-<span class="c1">// Release the mutex for other tasks</span>
+<span class="c1">// 进行一些操作</span>
+<span class="c1">// 为其他任务释放互斥体</span>
 <span class="n">mutex</span><span class="p">.</span><span class="n">give</span><span class="p">();</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 </div>
-<p>Mutexes do not magically prevent concurrent writing, but provide the ability for tasks to
-create “contracts” with each other. You can write your code such that a variable is never
-written to unless the task owns a mutex designated for that variable.</p>
+<p>互斥不会神奇地阻止并发写入，而是为任务提供相互创建“契约”的能力。你可以想这样编写代码，确保任务拥有变量指定的互斥体时才可写入变量。</p>
 </div>
-<div class="section" id="id7">
-<h2>通知<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
-<p>Task notifications are a powerful new feature in PROS 3 which allows direct-to-task
-synchronization. A full tutorial on task notifications can be found <a class="reference external" href="./notifications.html">here</a>.</p>
+<div class="section" id="id8">
+<h2>通知<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>任务通知是 PROS 3 中强大的一个新功能，它允许面向任务的同步。关于任务通知的完整教程可以在 <a class="reference external" href="./notifications.html">这里</a> 找到。</p>
 </div>
 </div>
 
@@ -491,7 +476,7 @@ synchronization. A full tutorial on task notifications can be found <a class="re
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="notifications.html" class="btn btn-neutral float-right" title="任务通知" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="notifications.html" class="btn btn-neutral float-right" title="通知" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="motors.html" class="btn btn-neutral" title="电机" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

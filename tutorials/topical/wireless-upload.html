@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>无线上传及冷热插拔 &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>无线上传及冷热链接 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -139,11 +139,11 @@
 <li class="toctree-l3"><a class="reference internal" href="llemu.html">LLEMU（传统 LCD 仿真器）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="motors.html">电机</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multitasking.html">多任务</a></li>
-<li class="toctree-l3"><a class="reference internal" href="notifications.html">任务通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notifications.html">通知</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vision.html">视觉传感器</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">无线上传及冷热插拔</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">无线上传及冷热链接</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id2">大型项目</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">冷热插拔疑难解答</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">冷热链接疑难解答</a></li>
 </ul>
 </li>
 </ul>
@@ -216,7 +216,7 @@
         
           <li><a href="../index.html">教程</a> &raquo;</li>
         
-      <li>无线上传及冷热插拔</li>
+      <li>无线上传及冷热链接</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -238,32 +238,25 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>无线上传及冷热插拔<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>无线上传及冷热链接<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">Wireless Upload requires at least CLI 3.1.4, Kernel 3.1.6, VEXos 1.0.5, and OkapiLib 3.3.12 (if used).</p>
+<p class="last">无线上传至少需要的版本为 CLI 3.1.4、内核 3.1.6、VEXos 1.0.5、OkapiLib 3.3.12（如果用了的话）。</p>
 </div>
-<p>PROS supports wireless upload to the V5 Brain via a V5 Controller. Although there are no special requirements to
-enable PROS to do this, file transfer speeds are typically unacceptably slow. To make them more reasonable, PROS
-has a different method of compiling your project so that the PROS kernel and other infrequently modified code
-are uploaded once and only the code you regularly modify (e.g. opcontrol.cpp, autonomous.cpp, and initialize.cpp)
-gets transferred to the V5 wirelessly. We call the code you upload once and never change the “cold image” and the
-code that changes frequently and gets uploaded every time the “hot image.”</p>
-<p>To enable this compilation mode, you should open your project’s Makefile and edit the line:</p>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Set to 1 to enable hot/cold linking</span>
+<p>PROS 支持通过 V5 手柄无线上传到 V5 Brain。尽管让 PROS 启用这个没什么特殊需求，不过文件传输速度通常难以接受。为了让它们变得更合理，PROS
+有一种不同的方法来编译你的项目，以便 PROS 内核和其他不常改的代码只上传一次；你经常改的代码（例如 opcontrol.cpp、autonomous.cpp、initialize.cpp）可通过无线传到 V5。我们称你只传一次、不会修改的为“冷映像”，频繁修改上传的代码为“热映像”。</p>
+<p>若要启用此编译模式，你得打开你项目的 Makefile，并且改这行：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 来启用冷/热链接</span>
 <span class="nv">USE_PACKAGE</span><span class="o">:=</span><span class="m">0</span>
 </pre></div>
 </div>
-<p>so that <code class="docutils literal notranslate"><span class="pre">USE_PACKAGE:=1</span></code>. Re-build and upload your project and PROS will automatically use the new files. PROS
-will automatically detect when you’re using the same combination of libraries and decide not to re-upload the
-“cold” code. Verification that the library is present is done with filename and checksum of the file. As a result,
-if you use the same combination of libraries (cold image), only one copy of the cold iamge is uploaded to the V5.</p>
+<p>因此 <code class="docutils literal notranslate"><span class="pre">USE_PACKAGE:=1</span></code>。重新构建并上传你的项目，PROS 将自动使用新文件。PROS
+会自动检测你是否在用相同的组合库，并且决定不去重新上传“冷”代码。校验库是否存在是靠文件名和校验码来实现的。
+如果你使用相同的组合库（冷映像），仅有一份冷映像的副本会被上传到 V5。</p>
 <div class="section" id="id2">
 <h2>大型项目<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>Projects with large codebases may still take some time to upload even with hot/cold linking. You may be able to
-reduce the size of your hot image by making part of your project a library so that some code is included in the
-cold image. To do so, edit the following lines of your project’s Makefile:</p>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Set this to 1 to add additional rules to compile your project as a PROS library template</span>
+<p>即使有热/冷链接，具有大型代码库的项目可能仍然需要一些时间来上传。你可以通过把项目的一部分作为库使，让它们被包括进冷映像，以此来减少热映像的大小。为此，修改你项目 Makefile 的以下几行：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 可添加其他规则，为了将项目编译为 PROS 库模板</span>
 <span class="nv">IS_LIBRARY</span><span class="o">:=</span><span class="m">0</span>
 <span class="c"># TODO: CHANGE THIS!</span>
 <span class="nv">LIBNAME</span><span class="o">:=</span>libbest
@@ -271,9 +264,8 @@ cold image. To do so, edit the following lines of your project’s Makefile:</p>
 <span class="c"># EXCLUDE_SRC_FROM_LIB= $(SRCDIR)/unpublishedfile.c</span>
 </pre></div>
 </div>
-<p>Change <code class="docutils literal notranslate"><span class="pre">IS_LIBRARY</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> and rename the library to something of your choosing. We recommend <code class="docutils literal notranslate"><span class="pre">lib&lt;robot</span> <span class="pre">name&gt;</span></code>
-or <code class="docutils literal notranslate"><span class="pre">lib&lt;team</span> <span class="pre">number&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">lib7701</span></code>) to be unique enough to avoid cause naming conflicts with other cold
-images. When compiling, PROS will include this library as part of the cold image. Your library should only contain
+<p>将 <code class="docutils literal notranslate"><span class="pre">IS_LIBRARY</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，并挑个名字给库命名。我们推荐 <code class="docutils literal notranslate"><span class="pre">lib&lt;你机器人的名字&gt;</span></code> 或者
+<code class="docutils literal notranslate"><span class="pre">lib&lt;你的队号&gt;``（例如``lib7701</span></code>）以确保具它是唯一的，不会与其他冷映像发生命名冲突。When compiling, PROS will include this library as part of the cold image. Your library should only contain
 files you infrequently change so that you do not have to frequently upload the cold image. By default, the Makefile
 is set up to exclude your project’s opcontrol.cpp, autonomous.cpp, and initialize.cpp files. If you change other
 files frequently, you can add lines like <code class="docutils literal notranslate"><span class="pre">EXCLUDE_SRC_FROM_LIB+=$(SRCDIR)/myfile.c</span></code> as needed.</p>
@@ -300,7 +292,7 @@ trying to refer to what in the hot image:</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h2>冷热插拔疑难解答<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>冷热链接疑难解答<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>Since hot/cold linking involves ensuring two compiled programs interact consistently, there may be additional runtime
 issues running in this mode. This section serves as a guide for debugging these sorts of issues.</p>
 <p>Generally, if the program appears to be running correctly (i.e. the screen shows), then the compilation mode worked
