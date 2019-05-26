@@ -244,7 +244,7 @@
 <p class="last">无线上传至少需要的版本为 CLI 3.1.4、内核 3.1.6、VEXos 1.0.5、OkapiLib 3.3.12（如果用了的话）。</p>
 </div>
 <p>PROS 支持通过 V5 手柄无线上传到 V5 Brain。尽管让 PROS 启用这个没什么特殊需求，不过文件传输速度通常难以接受。为了让它们变得更合理，PROS
-有一种不同的方法来编译你的项目，以便 PROS 内核和其他不常改的代码只上传一次；你经常改的代码（例如 opcontrol.cpp、autonomous.cpp、initialize.cpp）可通过无线传到 V5。我们称你只传一次、不会修改的为“冷映像”，频繁修改上传的代码为“热映像”。</p>
+有一种不同的方法来编译你的项目，以便 PROS 内核和其他不常改的代码只上传一次；经常改的代码（例如 opcontrol.cpp、autonomous.cpp、initialize.cpp）可通过无线传到 V5。我们称你只传一次、不会修改的为“冷映像”，频繁修改上传的代码为“热映像”。</p>
 <p>若要启用此编译模式，你得打开你项目的 Makefile，并且改这行：</p>
 <div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 来启用冷/热链接</span>
 <span class="nv">USE_PACKAGE</span><span class="o">:=</span><span class="m">0</span>
@@ -255,8 +255,8 @@
 如果你使用相同的组合库（冷映像），仅有一份冷映像的副本会被上传到 V5。</p>
 <div class="section" id="id2">
 <h2>大型项目<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p>即使有热/冷链接，具有大型代码库的项目可能仍然需要一些时间来上传。你可以通过把项目的一部分作为库使，让它们被包括进冷映像，以此来减少热映像的大小。为此，修改你项目 Makefile 的以下几行：</p>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 可添加其他规则，为了将项目编译为 PROS 库模板</span>
+<p>即使有冷/热链接，具有大型代码库的项目可能仍然需要一些时间来上传。你可以通过把项目的一部分作为库使，让它们被包括进冷映像，以此来减少热映像的大小。为此，修改你项目 Makefile 的以下几行：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 可添加其他规则，将项目编译为 PROS 库模板</span>
 <span class="nv">IS_LIBRARY</span><span class="o">:=</span><span class="m">0</span>
 <span class="c"># TODO: CHANGE THIS!</span>
 <span class="nv">LIBNAME</span><span class="o">:=</span>libbest
@@ -265,49 +265,42 @@
 </pre></div>
 </div>
 <p>将 <code class="docutils literal notranslate"><span class="pre">IS_LIBRARY</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，并挑个名字给库命名。我们推荐 <code class="docutils literal notranslate"><span class="pre">lib&lt;你机器人的名字&gt;</span></code> 或者
-<code class="docutils literal notranslate"><span class="pre">lib&lt;你的队号&gt;``（例如``lib7701</span></code>）以确保具它是唯一的，不会与其他冷映像发生命名冲突。When compiling, PROS will include this library as part of the cold image. Your library should only contain
-files you infrequently change so that you do not have to frequently upload the cold image. By default, the Makefile
-is set up to exclude your project’s opcontrol.cpp, autonomous.cpp, and initialize.cpp files. If you change other
-files frequently, you can add lines like <code class="docutils literal notranslate"><span class="pre">EXCLUDE_SRC_FROM_LIB+=$(SRCDIR)/myfile.c</span></code> as needed.</p>
-<p><strong>An important caveat</strong> is that code that goes into the cold image is <strong>not</strong> able to link against anything (call
-functions or use variables) in the hot image. Doing so will result in a linker error - you will be told what’s
-trying to refer to what in the hot image:</p>
+<code class="docutils literal notranslate"><span class="pre">lib&lt;你的队号&gt;``（例如``lib7701</span></code>）以确保具它是唯一的，不会与其他冷映像发生命名冲突。在编译过程中，PROS 会把这个库包括到冷映像的一部分。你的库仅应包含不常改变的文件，以便不需要频繁上传冷映像。默认情况下，Makefile
+被设置为排除项目的 opcontrol.cpp、autonomous.cpp、、initialize.cpp 文件。如果你经常修改其他文件，可以根据需要添加 <code class="docutils literal notranslate"><span class="pre">EXCLUDE_SRC_FROM_LIB+=$(SRCDIR)/myfile.c</span></code>。</p>
+<p><strong>一个重要的警告</strong>：进入冷映像的代码 <strong>不能</strong> 链接到热映像的任何东西（调用函数或使用变量）。这样做将导致链接器错误——你将被告知哪处引用了热映像：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span>bin/libtheseus.a(lcdselector.cpp.o):(.data.inits+0x0): undefined reference to `auton::allianceInit(auton::color)&#39;
 </pre></div>
 </div>
-<p>You should refactor your code so that only “hot” code calls “cold” code or include the culprit file in the hot image.</p>
-<p>An example of a modified Makefile’s relevant lines is shown below:</p>
-<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Set to 1 to enable hot/cold linking</span>
+<p>你应该重构代码，以便只有“热”代码调用“冷”代码，或把引起问题的文件丢到热映像中。</p>
+<p>Makefile 修改后的几行示例如下所示：</p>
+<div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># 设置为 1 来启用冷/热链接</span>
 <span class="nv">USE_PACKAGE</span><span class="o">=</span><span class="m">1</span>
 
-<span class="c"># Set this to 1 to add additional rules to compile your project as a PROS library template</span>
+<span class="c"># 设置为 1 可添加其他规则，将项目编译为 PROS 库模板</span>
 <span class="nv">IS_LIBRARY</span><span class="o">:=</span><span class="m">1</span>
 <span class="nv">LIBNAME</span><span class="o">:=</span>libtheseus
 <span class="nv">VERSION</span><span class="o">:=</span><span class="m">1</span>.0.0
-<span class="c"># this line excludes opcontrol.c and similar files</span>
+<span class="c"># 这一行排除 opcontrol.c 和类似文件</span>
 <span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>foreach file, <span class="k">$(</span>SRCDIR<span class="k">)</span>/opcontrol <span class="k">$(</span>SRCDIR<span class="k">)</span>/initialize <span class="k">$(</span>SRCDIR<span class="k">)</span>/autonomous,<span class="k">$(</span>foreach cext,<span class="k">$(</span>CEXTS<span class="k">)</span>,<span class="k">$(</span>file<span class="k">)</span>.<span class="k">$(</span>cext<span class="k">))</span> <span class="k">$(</span>foreach cxxext,<span class="k">$(</span>CXXEXTS<span class="k">)</span>,<span class="k">$(</span>file<span class="k">)</span>.<span class="k">$(</span>cxxext<span class="k">)))</span>
-<span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>SRCDIR<span class="k">)</span>/scripts             <span class="c1"># exclude any files in the src/scripts directory</span>
-<span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>SRCDIR<span class="k">)</span>/lcdselector.cpp     <span class="c1"># exclude src/lcdselector.cpp</span>
+<span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>SRCDIR<span class="k">)</span>/scripts             <span class="c1"># 排除 src/scripts 目录中的所有文件</span>
+<span class="nv">EXCLUDE_SRC_FROM_LIB</span><span class="o">+=</span><span class="k">$(</span>SRCDIR<span class="k">)</span>/lcdselector.cpp     <span class="c1"># 排除 src/lcdselector.cpp</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
 <h2>冷热链接疑难解答<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
-<p>Since hot/cold linking involves ensuring two compiled programs interact consistently, there may be additional runtime
-issues running in this mode. This section serves as a guide for debugging these sorts of issues.</p>
-<p>Generally, if the program appears to be running correctly (i.e. the screen shows), then the compilation mode worked
-correctly and the error you’re experiencing is likely related to your code’s logic. If your code’s logic runs correctly
-when not using hot/cold linking, contact us so we may assist in troubleshooting.</p>
-<p>If you see a black scren, then PROS did not boot correctly.</p>
+<p>由于冷/热链接涉及确保两个编译后程序一致交互，这种模式下可能有额外运行期问题。本节是调试这类问题的指南。</p>
+<p>通常，如果程序看起来运行正常（即屏幕显示）, 那么编译模式工作正常，你遇到的错误可能与代码逻辑有关。如果你的代码逻辑在不使用冷/热链接时可以正常工作，请联系我们，以便我们可以帮你排除故障。</p>
+<p>如果屏幕是黑的，PROS 没有正确启动。</p>
 <ul class="simple">
-<li>A global constructor is in an infinite loop or raised an exception.</li>
-<li>See also troubleshooting steps below</li>
+<li>全局构造器处于无限循环中或引发了异常</li>
+<li>另请参见下面的故障排除步骤</li>
 </ul>
-<p>If you see a grey screen, then PROS booted correctly, but is not running your hot image.</p>
+<p>如果屏幕是灰的，PROS 正确启动了，但没有运行热映像。</p>
 <ul class="simple">
-<li>Delete all user programs, perform a clean build, and upload</li>
+<li>删除所有用户程序，执行清理构建，然后上传</li>
 </ul>
-<p>If you’re having issues, contact us so we may assist in troubleshooting.</p>
+<p>如果你有问题，请联系我们，以便我们可以帮助您排除故障。</p>
 </div>
 </div>
 
