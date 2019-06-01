@@ -142,8 +142,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">模拟数字接口（3 线端口）</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id4">模拟传感器</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#id5">初始化</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id6">电位计</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#id7">寻线器</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id6">电位器</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id7">循线传感器</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#id8">加速度计</a></li>
 </ul>
 </li>
@@ -160,7 +160,7 @@
 <li class="toctree-l3"><a class="reference internal" href="display.html">V5 Brain 显示屏（LVGL）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filesystem.html">文件系统</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jinx.html">JINX 图形调试器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="llemu.html">LLEMU（传统 LCD 仿真器）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="llemu.html">LLEMU（遗留 LCD 仿真器）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="motors.html">电机</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multitasking.html">多任务</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notifications.html">通知</a></li>
@@ -190,7 +190,7 @@
 </ul>
 <p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">Extended API Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">扩展 API 专题</a></li>
 </ul>
 
             
@@ -261,15 +261,15 @@
 <h1>模拟数字接口（3 线端口）<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">For a full list of functions for interacting with the ADI, see its
-<a class="reference external" href="../../api/c/adi.html">C API</a> and <a class="reference external" href="../../api/cpp/adi.html">C++ API</a>.</p>
+<p class="last">要了解与模拟数字接口交互的完成函数列表，查看
+<a class="reference external" href="../../api/c/adi.html">C API</a> 和 <a class="reference external" href="../../api/cpp/adi.html">C++ API</a>。</p>
 </div>
 <div class="contents local topic" id="id3">
 <ul class="simple">
 <li><a class="reference internal" href="#id4" id="id41">模拟传感器</a><ul>
 <li><a class="reference internal" href="#id5" id="id42">初始化</a></li>
-<li><a class="reference internal" href="#id6" id="id43">电位计</a></li>
-<li><a class="reference internal" href="#id7" id="id44">寻线器</a></li>
+<li><a class="reference internal" href="#id6" id="id43">电位器</a></li>
+<li><a class="reference internal" href="#id7" id="id44">循线传感器</a></li>
 <li><a class="reference internal" href="#id8" id="id45">加速度计</a></li>
 </ul>
 </li>
@@ -284,24 +284,12 @@
 </div>
 <div class="section" id="id4">
 <h2><a class="toc-backref" href="#id41">模拟传感器</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
-<p>While computers, microcontrollers, and other devices that interface with
-VEX robots are digital systems, most of the real world operates as
-analog components, where a range of possible values exist instead of
-simply an arrangement of 1s and 0s. Analog sensors like potentiometers and line
-trackers are used to communicate with these analog real-world systems.
-These sensors return a number within a preset range of values
-in accordance with their input, as opposed to a digit sensor which
-simply returns an on or off state.</p>
-<p>To take these analog inputs and convert them to information that the
-Cortex can actually use, ADCs (Analog to Digital Converters) are used on
-each of the Analog In ports to convert the analog input signals (varying
-voltage signals) to 12 bit integers. As a result, the range of all
-analog sensors when used with the Cortex is 0 to 4095 (the range of a 12
-bit unsigned integer).</p>
+<p>虽然与 VEX 机器人对接的计算机，微控制器和其他设备是数字系统，但现实世界的大多数成分都表现为模拟的，其中存在一系列可能的值，而不仅仅是
+1 和 0 的排列。电位器和循线传感器等模拟传感器用于与这些模拟的真实系统进行通信。这些传感器根据它们的输入返回预设值范围内的数字，而不是像数字传感器那样简单地返回开或关的状态。</p>
+<p>要获取这些模拟输入并将其转换为 Cortex 实际可以使用的信息，每个模拟输入端口都使用 ADC（模数转换器）将模拟输入信号（变化的电压信号）转换为 12 位整数。因此，用于 Cortex 时，所有模拟传感器的范围是 0 到 4095（12位无符号整数的范围）。</p>
 <div class="section" id="id5">
 <h3><a class="toc-backref" href="#id42">初始化</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
-<p>As with all ADI sensors, the first step to using the sensor is to set the configuration
-for its ADI port.</p>
+<p>使用任何模拟数字传感器的第一步是设置其端口配置。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-Qw== docutils container">
@@ -341,20 +329,15 @@ C++</div>
 
 <span class="kt">void</span> <span class="nf">initialize</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">pros</span><span class="o">::</span><span class="n">ADIAnalogIn</span> <span class="n">sensor</span> <span class="p">(</span><span class="n">ANALOG_SENSOR_PORT</span><span class="p">);</span>
-  <span class="c1">// Use the sensor</span>
+  <span class="c1">// 使用传感器</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 </div>
 </div>
-<p>Additionally, it is often worthwhile to calibrate analog sensors before using them
-in the <code class="docutils literal notranslate"><span class="pre">initialize()</span></code> function. The
-<a class="reference external" href="../../api/c/adi.html#adi-analog-calibrate">analog_calibrate</a> function collects
-approximately 500 data samples over a period of half a
-second and returns the average value received over the sampling period.
-This average value can be used to account for variations like ambient light for
-line trackers.</p>
+<p>另外，最好先校准模拟传感器，再在
+<code class="docutils literal notranslate"><span class="pre">initialize()</span></code> 函数中使用它们。<a class="reference external" href="../../api/c/adi.html＃adi-analog-calibrate">analog_calibrate</a> 函数在半秒的时间内采样大约 500 个数据，并返回这些数据的平均值。该平均值可用于说明环境变化，如循线传感器感受到的环境光等。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-Qw== docutils container">
@@ -405,24 +388,9 @@ C++</div>
 </div>
 </div>
 <div class="section" id="id6">
-<h3><a class="toc-backref" href="#id43">电位计</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
-<p>Potentiometers measure angular position and can be used to determine the
-direction of rotation of its input. Potentiometers are best used in
-applications such as lifts where the sensor is not at risk of being
-rotated beyond its 250-degree physical constraint. Potentiometers
-typically do not need to be calibrated, although it may be desired as it
-helps account for possible shifting in the potentiometer mounting and to
-find the actual range of the potentiometer due to its mechanical stops
-as that range may be closer to 5-4090 instead of 0-4095. If the
-potentiometer is not calibrated, the <a class="reference external" href="../../api/c/adi.html#adi-analog-read">analog_read</a>
-function may be used to obtain the raw
-input value of the potentiometer. If the sensor was calibrated, the
-<a class="reference external" href="../../api/c/adi.html#adi-analog-read-calibrated">analog_read_calibrated</a> function should be used,
-as it will account for the sensor’s
-calibration and return more accurate results. The input to both of these
-functions is the channel number of the sensor, and an integer is
-returned.</p>
-<p>Thus an example of use on a lift would look like:</p>
+<h3><a class="toc-backref" href="#id43">电位器</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>电位计测量角位置，可用于确定其输入的旋转方向。电位计最适用于升降机等结构中，这些结构中传感器不会有旋转超过其 250 度的物理约束的风险。电位器通常不需要校准，但有可能还是需要进行校准，因为校准有助于解决电位器安装中的可能变化，或者找到电位器被机械约束的实际范围，因为该范围可能更接近 5-4090 而不是 0-4095。如果不校准电位器，可以使用 <a class="reference external" href="../../api/c/adi.html＃adi-analog-read">analog_read</a> 函数来获得电位计的原始输入值。如果传感器已校准，则应使用`analog_read_calibrated &lt;../../ api / c / adi.html＃adi-analog-read-calibrated&gt;`_ 函数，因为它将考虑传感器的校准并返回准确的结果。这两个函数的输入（参数）是传感器的通道号，并返回一个整数。</p>
+<p>因此在升降机中使用的例子可能看起来像这样：</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-Qw== docutils container">
@@ -450,9 +418,9 @@ C++</div>
 <span class="cp">#define MOTOR_PORT 1</span>
 
 <span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">//while the potentiometer is not at its maximum position</span>
+  <span class="c1">// 若电位器没有达到其最大值</span>
   <span class="k">while</span> <span class="p">(</span><span class="n">adi_analog_read</span><span class="p">(</span><span class="n">POTENTIOMETER_PORT</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4095</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">motor_move</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span> <span class="c1">//activate the lift</span>
+    <span class="n">motor_move</span><span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span> <span class="c1">// 启动升降机</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -480,7 +448,7 @@ C++</div>
 <span class="kt">void</span> <span class="nf">autonomous</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">pros</span><span class="o">::</span><span class="n">ADIPotentiometer</span> <span class="n">sensor</span> <span class="p">(</span><span class="n">POTENTIOMETER_PORT</span><span class="p">);</span>
   <span class="n">pros</span><span class="o">::</span><span class="n">Motor</span> <span class="n">motor</span> <span class="p">(</span><span class="n">MOTOR_PORT</span><span class="p">);</span>
-  <span class="c1">//while the potentiometer is not at its maximum position</span>
+  <span class="c1">// 若电位器没有达到其最大值</span>
   <span class="k">while</span> <span class="p">(</span><span class="n">sensor</span><span class="p">.</span><span class="n">get_value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">4095</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">motor</span> <span class="o">=</span> <span class="mi">127</span><span class="p">;</span>
     <span class="n">pros</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
@@ -493,7 +461,7 @@ C++</div>
 </div>
 </div>
 <div class="section" id="id7">
-<h3><a class="toc-backref" href="#id44">寻线器</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3><a class="toc-backref" href="#id44">循线传感器</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>VEX Line Trackers operate by measuring the amount of light reflected to
 the sensor and determining the existence of lines from the difference in
 light reflected by the white tape and the dark tiles. The Line Trackers

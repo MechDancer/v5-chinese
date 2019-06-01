@@ -165,7 +165,7 @@
 </ul>
 <p class="caption"><span class="caption-text">扩展（高级用户）</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">Extended API Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended/index.html">扩展 API 专题</a></li>
 </ul>
 
             
@@ -243,13 +243,9 @@
 </div>
 <div class="section" id="include">
 <h2>include<a class="headerlink" href="#include" title="永久链接至标题">¶</a></h2>
-<p>所有 <strong>头</strong> 文件都可在 <code class="docutils literal notranslate"><span class="pre">include</span></code> 目录找到。 One
-header file, <a class="reference external" href="../../api/index.html">api.h</a>, is required to declare
-the PROS library functions. This file exists merely to include the individual
-PROS API headers, all of which can be found in <code class="docutils literal notranslate"><span class="pre">include/pros</span></code>. Each header file
-in this directory covers a specific aspect of interacting with the V5 hardware,
-and correlates to the files found in the <a class="reference external" href="../../api/index.html">API documentation</a>.</p>
-<p>另一个文件 <code class="docutils literal notranslate"><span class="pre">main.h</span></code> 旨在声明用户代码文件之间共享的函数和变量。<code class="docutils literal notranslate"><span class="pre">main.h</span></code> 还还提供各种可配置选项，根据你的需求定制PROS。</p>
+<p>所有 <strong>头</strong> 文件都可在 <code class="docutils literal notranslate"><span class="pre">include</span></code> 目录找到。其中的一个头文件，<a class="reference external" href="../../api/index.html">api.h</a>，用于声明
+PROS 库函数。这个文件的存在仅是为了包含其他PROS API 头文件，那些文件都可以在 <code class="docutils literal notranslate"><span class="pre">include/pros</span></code> 中找到。这个目录中的每个头文件涵盖了与V5硬件交互的特定方面，并与 <a class="reference external" href="../../api/index.html">API documentation</a> 中提到的文件相关。</p>
+<p>另一个文件 <code class="docutils literal notranslate"><span class="pre">main.h</span></code> 旨在声明用户代码文件之间共享的函数和变量。<code class="docutils literal notranslate"><span class="pre">main.h</span></code> 还还提供各种可配置选项，根据你的需求定制 PROS。</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">PROS_USE_SIMPLE_NAMES</span></code>：如果定义了这个，一些常用的枚举将会被预处理器宏赋予更短、更方便的命名模式。举个例子，
 E_CONTROLLER_MASTER 将会拥有一个更短的名字 <code class="docutils literal notranslate"><span class="pre">CONTROLLER_MASTER</span></code>。尽管 <code class="docutils literal notranslate"><span class="pre">E_CONTROLLER_MASTER</span></code>
@@ -270,7 +266,7 @@ E_CONTROLLER_MASTER 将会拥有一个更短的名字 <code class="docutils lite
 </pre></div>
 </div>
 <p>这将保证 PROS API 和其他关键的定义在每个文件中都可用。</p>
-<p>虽然比某些环境更复杂，但是将代码分割提供了强大的模块性和复用性，尤其是在与源码控制相结合的时候。</p>
+<p>虽然提高了复杂度，但是将代码分割开带来了强大的模块性和复用性，尤其是在与源码控制相结合的时候。</p>
 </div>
 </div>
 
