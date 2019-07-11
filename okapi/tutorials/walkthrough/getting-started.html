@@ -46,6 +46,8 @@
   
    
   
+  <link rel="alternate" type="application/atom+xml"  href="../../../blog/index/atom.xml" title="Blog">
+  
   
   <style type="text/css">
     ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
@@ -271,7 +273,7 @@ using it by uncommenting OkapiLib’s API header include statement in the file <
  <span class="c1">//#include &quot;pros/api_legacy.h&quot;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Then, in file <code class="docutils literal notranslate"><span class="pre">src/opcontrol.cpp</span></code>, remove the statement <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">pros::literals</span></code>.</p>
+<p>Then, in file <code class="docutils literal notranslate"><span class="pre">src/opcontrol.cpp</span></code>, remove the statement <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">pros::literals</span></code> (if it exists).</p>
 <p>That’s it! Take a look at the <a class="reference external" href="../index.html">other tutorials</a> to get a better understanding
 of the tools Okapilib has.</p>
 </div>
