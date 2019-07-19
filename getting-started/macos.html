@@ -250,7 +250,7 @@
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">如果你不想用 PROS 编辑器而只想使用 PROS CLI， <code class="code docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">pros-cli</span></code> 来替换步骤 3 中的命令。</p>
+<p class="last">如果你不想用 PROS 编辑器而只想使用 PROS CLI，用 <code class="code docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">pros-cli</span></code> 来替换步骤 3 中的命令。</p>
 </div>
 </div>
 <div class="section" id="id4">
@@ -305,33 +305,33 @@
 <h2>已知问题<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p><code class="code docutils literal notranslate"><span class="pre">RuntimeError:</span> <span class="pre">Click</span> <span class="pre">will</span> <span class="pre">abort</span> <span class="pre">further</span> <span class="pre">execution</span> <span class="pre">because</span> <span class="pre">Python</span> <span class="pre">3</span> <span class="pre">was</span> <span class="pre">configured</span>
 <span class="pre">to</span> <span class="pre">use</span> <span class="pre">ASCII</span> <span class="pre">as</span> <span class="pre">encoding</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">environment.</span></code></p>
-<p>If you are using the PROS Editor, open up your init script (File &gt; Init Script) and add the following two lines:</p>
+<p>如果你在使用 PROS 编辑器，打开初始化脚本（File &gt; Init Script）并添加以下两行：</p>
 <div class="highlight-coffee notranslate"><div class="highlight"><pre><span></span><span class="nv">process.env.LANG = </span><span class="s">&#39;en_US.utf-8&#39;</span>
 <span class="nv">process.env.LC_ALL = </span><span class="s">&#39;en_US.utf-8&#39;</span>
 </pre></div>
 </div>
-<p>If you are just using the CLI at the Terminal:</p>
+<p>如果你仅在终端中使用 CLI：</p>
 <ol class="arabic simple">
-<li>Open up your Terminal.</li>
-<li>Run <code class="code docutils literal notranslate"><span class="pre">cd</span></code> to make sure you’re in your home directory.</li>
-<li>Run <code class="code docutils literal notranslate"><span class="pre">touch</span> <span class="pre">.bash_profile</span></code> to make sure you have a shell login configuration file.</li>
-<li>Edit the <code class="code docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> file in your preferred editor (you can also run <code class="code docutils literal notranslate"><span class="pre">open</span> <span class="pre">-e</span> <span class="pre">.bash_profile</span></code> to edit it in TextEdit), adding the following two lines at the end:</li>
+<li>打开终端。</li>
+<li>运行命令 <code class="code docutils literal notranslate"><span class="pre">cd</span></code> 确保你在主目录下。</li>
+<li>运行命令 <code class="code docutils literal notranslate"><span class="pre">touch</span> <span class="pre">.bash_profile</span></code> 确保存在 shell 配置文件。</li>
+<li>在你偏好的编辑器中（也可以运行 <code class="code docutils literal notranslate"><span class="pre">open</span> <span class="pre">-e</span> <span class="pre">.bash_profile</span></code> 使用 TextEdit）修改 <code class="code docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> 文件，在末尾添加以下两行：</li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span><span class="s2">&quot;en_US.utf-8&quot;</span>
 <span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span><span class="s2">&quot;en_US.utf-8&quot;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
-<li>Run <code class="code docutils literal notranslate"><span class="pre">.</span> <span class="pre">.bash_profile</span></code> to reload the file for the current session.</li>
+<li>运行命令 <code class="code docutils literal notranslate"><span class="pre">.</span> <span class="pre">.bash_profile</span></code> 为当前会话重载配置文件。</li>
 </ol>
 <p><code class="code docutils literal notranslate"><span class="pre">/bin/sh:</span> <span class="pre">intercept-c++:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">This issue should be fixed for PROS CLI versions &gt; 3.1.2</p>
+<p class="last">该问题将在 PROS CLI 3.1.2 版本后修复。</p>
 </div>
 <ol class="arabic simple">
-<li>Check your PROS CLI version by running <code class="code docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">--version</span></code>. If your version is &lt;= 3.1.2, try updating first to check if that solves your problem. If not, continue with step 2.</li>
-<li>Follow steps 1-4 listed above for those using the CLI only. In step 4, however, add the following line instead (replacing the Xs with the numbers found in step 1):</li>
+<li>使用 <code class="code docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">--version</span></code> 检查 PROS CLI 版本。如果 &lt;= 3.1.2，先试试更新以下，看看问题有没有解决。如果没有，继续往下看步骤 2。</li>
+<li>遵循上方仅在终端中使用 CLI 的步骤 1-4，不过在步骤 4 中改为添加以下一行（将 Xs 替换为第一部中获取的版本号）：</li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/Cellar/pros-cli/3.X.X/libexec/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </pre></div>
