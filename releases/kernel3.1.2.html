@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PROS Kernel 3.1.2 Release &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>PROS 内核 3.1.2 版本 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -191,7 +191,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>PROS Kernel 3.1.2 Release</li>
+      <li>PROS 内核 3.1.2 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,30 +212,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pros-kernel-3-1-2-release">
-<h1>PROS Kernel 3.1.2 Release<a class="headerlink" href="#pros-kernel-3-1-2-release" title="永久链接至标题">¶</a></h1>
-<p>New Features:</p>
+  <div class="section" id="pros-3-1-2">
+<h1>PROS 内核 3.1.2 版本<a class="headerlink" href="#pros-3-1-2" title="永久链接至标题">¶</a></h1>
+<p>新特性：</p>
 <ul class="simple">
-<li>Controller rumble motor functionality</li>
+<li>手柄运行（rumble）电机功能</li>
 </ul>
-<p>Bugfixes:</p>
+<p>错误修复：</p>
 <ul class="simple">
-<li>Global <code class="docutils literal notranslate"><span class="pre">ADIGyro</span></code> constructors now work</li>
-<li>Fix the port names for the <code class="docutils literal notranslate"><span class="pre">ADIUltrasonic</span></code> constructor</li>
-<li>Fix the bug where <code class="docutils literal notranslate"><span class="pre">get_digital_new_press()</span></code> would always return <code class="docutils literal notranslate"><span class="pre">true</span></code></li>
-<li>Implement <code class="docutils literal notranslate"><span class="pre">pros::Task::remove()</span></code>, which is analogous to <code class="docutils literal notranslate"><span class="pre">task_delete()</span></code></li>
-<li>Change VDML initialization process to fix global initialization for user-defined objects that use VDML functionality in a task immediately upon startup</li>
+<li>全局构造函数 <code class="docutils literal notranslate"><span class="pre">ADIGyro</span></code> 现在可以工作了</li>
+<li>修复 <code class="docutils literal notranslate"><span class="pre">ADIUltrasonic</span></code> 构造函数的端口名</li>
+<li>修复 <code class="docutils literal notranslate"><span class="pre">get_digital_new_press()</span></code> 总会返回 <code class="docutils literal notranslate"><span class="pre">true</span></code> 的 bug</li>
+<li>实现 <code class="docutils literal notranslate"><span class="pre">pros::Task::remove()</span></code>，这类似于 <code class="docutils literal notranslate"><span class="pre">task_delete()</span></code></li>
+<li>更改 VDML 初始化过程，来修复用户定义使用 VDML 功能对象在任务中立即启动全局初始化</li>
 </ul>
-<p>Deprecated:</p>
+<p>已弃用：</p>
 <ul class="simple">
-<li>Deprecated any of the ADI port configuration enum values that were identical to generic I/O types (e.g. the <code class="docutils literal notranslate"><span class="pre">E_ADI_SMART_POT</span></code> is deprecated in favor of <code class="docutils literal notranslate"><span class="pre">E_ADI_ANALOG_IN</span></code>). Projects will still compile and be functionally equivalent to the new preferred value, but will raise a warning to use the new value.</li>
+<li>弃用与通用 I/O 类型相同的 ADI 端口配置枚举值（例如使用 <code class="docutils literal notranslate"><span class="pre">E_ADI_SMART_POT</span></code> 而不推荐 <code class="docutils literal notranslate"><span class="pre">E_ADI_ANALOG_IN</span></code>）。项目仍然会编译并在功能上等同于新的偏好值，但会发出推荐使用新值的警告。</li>
 </ul>
-<p>Header Docs:</p>
+<p>头文件文档：</p>
 <ul class="simple">
-<li>Clarify parameter initialization for <code class="docutils literal notranslate"><span class="pre">task_delay_until()</span></code></li>
-<li>Describe <code class="docutils literal notranslate"><span class="pre">errno</span></code> meanings for controller text setting</li>
-<li>Typo fix in <code class="docutils literal notranslate"><span class="pre">Motor::get_current_limit()</span></code> docs</li>
-<li>Fix return units for <code class="docutils literal notranslate"><span class="pre">motor_get_actual_velocity()</span></code></li>
+<li>阐明 <code class="docutils literal notranslate"><span class="pre">task_delay_until()</span></code> 的参数初始化</li>
+<li>描述手柄文本设置 <code class="docutils literal notranslate"><span class="pre">errno</span></code> 的含义</li>
+<li>修复 <code class="docutils literal notranslate"><span class="pre">Motor::get_current_limit()</span></code> 文档中的拼写错误</li>
+<li>修复 <code class="docutils literal notranslate"><span class="pre">motor_get_actual_velocity()</span></code> 的返回单位</li>
 </ul>
 </div>
 
@@ -250,7 +250,7 @@
   Previous: 
   <a href="kernel3.1.1.html">
     
-    PROS Kernel 3.1.1 Release
+    PROS 内核 3.1.1 版本
   </a>
   
   </span>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PROS Kernel 3.1.6 Release &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>PROS 内核 3.1.6 版本 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -191,7 +191,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>PROS Kernel 3.1.6 Release</li>
+      <li>PROS 内核 3.1.6 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,35 +212,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pros-kernel-3-1-6-release">
-<h1>PROS Kernel 3.1.6 Release<a class="headerlink" href="#pros-kernel-3-1-6-release" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="pros-3-1-6">
+<h1>PROS 内核 3.1.6 版本<a class="headerlink" href="#pros-3-1-6" title="永久链接至标题">¶</a></h1>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">Be sure to look at important upgrade instructions below.</p>
+<p class="last">请务必查看以下重要升级说明。</p>
 </div>
-<p>New Features:</p>
+<p>新特性：</p>
 <ul class="simple">
-<li>Add support for hot/cold linking</li>
-<li>Bugfixes to LLEMU and task notifications</li>
+<li>支持冷/热链接</li>
+<li>修复 LLEMU 和任务通知的一些 bug</li>
 </ul>
-<p>Usability Impovements:</p>
+<p>可用性提升：</p>
 <ul class="simple">
-<li>Refactored Makefiles</li>
+<li>重构 Makefile</li>
 </ul>
-<p>Bugfixes:</p>
+<p>错误修复：</p>
 <ul class="simple">
-<li>Miscellaneous RTOS bugfixes</li>
-<li>Fixed a possible buffer overrun when using controller printing</li>
+<li>各式各样的 RTOS bug</li>
+<li>修复了使用手柄打印时可能出现的缓冲区溢出</li>
 </ul>
-<div class="section" id="important-upgrade-instructions">
-<h2>Important Upgrade Instructions<a class="headerlink" href="#important-upgrade-instructions" title="永久链接至标题">¶</a></h2>
-<p>In order to support modified hot/cold linking we needed to modify the Makefile, which
-is intended to be modified by you. When upgrading your project (regardless of whether
-you enable hot/cold linking), you must modify your Makefile as follows:</p>
+<div class="section" id="id1">
+<h2>重要升级说明<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>为了支持修改后的冷/热链接，Makefile 还需要修改，这件事就交给你了。当更新项目时（无论是否启用冷/热链接）都必须按照下列方式修改 Makefile：</p>
 <ol class="arabic">
-<li><p class="first">Remove all lines after <cite>-include ./common.mk</cite></p>
+<li><p class="first">移除 <cite>-include ./common.mk</cite> 后的所有行</p>
 </li>
-<li><p class="first">Add the following two lines above the <cite>-include ./common.mk</cite> line (for example, below <cite>EXTRA_CXXFLAGS=</cite>):</p>
+<li><p class="first">在 <cite>-include ./common.mk</cite> 这行上面添加下列两行（例如在 <cite>EXTRA_CXXFLAGS=</cite> 下面）：</p>
 <blockquote>
 <div><div class="highlight-Makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Set to 1 to enable hot/cold linking</span>
 <span class="nv">USE_PACKAGE</span><span class="o">:=</span><span class="m">0</span>
@@ -249,7 +247,7 @@ you enable hot/cold linking), you must modify your Makefile as follows:</p>
 </div></blockquote>
 </li>
 </ol>
-<p>Your Makefile should now be similar to the template <a class="reference external" href="https://github.com/purduesigbots/pros/blob/3.1.6/template-Makefile">Makefile</a>.</p>
+<p>你的 Makefile 现在应该和模板 <a class="reference external" href="https://github.com/purduesigbots/pros/blob/3.1.6/template-Makefile">Makefile</a> 相似。</p>
 </div>
 </div>
 

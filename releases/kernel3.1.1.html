@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PROS Kernel 3.1.1 Release &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>PROS 内核 3.1.1 版本 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -191,7 +191,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>PROS Kernel 3.1.1 Release</li>
+      <li>PROS 内核 3.1.1 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,24 +212,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pros-kernel-3-1-1-release">
-<h1>PROS Kernel 3.1.1 Release<a class="headerlink" href="#pros-kernel-3-1-1-release" title="永久链接至标题">¶</a></h1>
-<p>A variety of bugfixes and usability improvements over 3.1.0.</p>
-<p>Bugfixes:</p>
+  <div class="section" id="pros-3-1-1">
+<h1>PROS 内核 3.1.1 版本<a class="headerlink" href="#pros-3-1-1" title="永久链接至标题">¶</a></h1>
+<p>在 3.1.0 之上修复了许多错误，提升了各方面的可用性。</p>
+<p>错误修复：</p>
 <ul class="simple">
-<li>Competition control now works properly with running matches from the brain/controller (as opposed to just a competition switch/field controller before)</li>
-<li>Global constructors now work for Smart Devices (Motors, Vision Sensors, etc.)</li>
-<li><code class="docutils literal notranslate"><span class="pre">pros::Controller::print()</span></code> will now compile and work properly</li>
-<li>Okapilib now works with the template operator control file by default, no more need to remove the <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">pros::literals</span></code> line first</li>
+<li>比赛控制现在可以通过 Brain/手柄（而不是之前的比赛开关/场控) 正确运行</li>
+<li>智能设备（电机、视觉传感器等）的全局构造函数现在可以工作了</li>
+<li><code class="docutils literal notranslate"><span class="pre">pros::Controller::print()</span></code> 现在可以编译并正常工作</li>
+<li>Okapilib 现在默认使用模板操作符控制文件，不再需要事先移除 <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">pros::literals</span></code> 这行</li>
 </ul>
-<p>New Features:</p>
+<p>新特性：</p>
 <ul class="simple">
-<li>A proper Gyro Driver in C and C++. No more need to manually configure the ADI port to be a gyroscope.</li>
+<li>在 C 和 C++ 中正确的陀螺仪驱动。不再需要手动配置 ADI 端口使其成为陀螺仪</li>
 </ul>
-<p>Usability Improvements:</p>
+<p>可用性提升：</p>
 <ul class="simple">
-<li>All of the competition control functions (<code class="docutils literal notranslate"><span class="pre">autonomous()</span></code>, <code class="docutils literal notranslate"><span class="pre">opcontrol()</span></code>, etc.) are now prototyped in <code class="docutils literal notranslate"><span class="pre">main.h</span></code> and can be called from user code</li>
-<li><code class="docutils literal notranslate"><span class="pre">PROS_USE_SIMPLE_NAMES</span></code> is implemented for all of the API headers in both C and C++</li>
+<li>所有比赛控制函数（<code class="docutils literal notranslate"><span class="pre">autonomous()</span></code>、<code class="docutils literal notranslate"><span class="pre">opcontrol()</span></code> 等）现在被原型化为 <code class="docutils literal notranslate"><span class="pre">main.h</span></code>，并且能够从用户代码中调用</li>
+<li>C 和 C++ 中所有 API 头文件实现了 <code class="docutils literal notranslate"><span class="pre">PROS_USE_SIMPLE_NAMES</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">motor_move()</span></code> and its C++ equivalent properly clamp inputs to <code class="docutils literal notranslate"><span class="pre">[-127,127]</span></code>, so arcade control code will work properly with no clamping of the controller values in user code</li>
 </ul>
 </div>
@@ -254,7 +254,7 @@
   
   Next: 
   <a href="kernel3.1.2.html">
-    PROS Kernel 3.1.2 Release
+    PROS 内核 3.1.2 版本
     
   </a>
   </span>
