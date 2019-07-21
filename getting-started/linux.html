@@ -238,18 +238,18 @@
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">如果你使用的是基于 Debian，版本 &gt;18.04 的 Linux 发行版，你可在 <a class="reference external" href="https://www.ubuntuupdates.org/package/core/disco/universe/base/gcc-arm-none-eabi">这里</a> 找到工具链。</p>
+<p class="last">如果你使用的是基于 Debian 并且版本 &gt; 18.04 的 Linux 发行版，你可在 <a class="reference external" href="https://www.ubuntuupdates.org/package/core/disco/universe/base/gcc-arm-none-eabi">这里</a> 找到工具链。</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">如果你使用的不是基于 Debian 的 Linux 发行版，请检查偏好的包仓库以获取更新版本的工具链。不管怎样，你得获得一个使用 GCC 7.2 或更高版本的工具链。</p>
+<p class="last">如果你使用的不是基于 Debian 的 Linux 发行版，请检查偏好的包仓库以获取更新版本的工具链。不管怎样，你需要获得一个使用 GCC 7.2 或更高版本的工具链。</p>
 </div>
 </div>
 <div class="section" id="cli">
 <h2>安装 CLI<a class="headerlink" href="#cli" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
-<li>如果你还没有安装 Python，安装一个 &gt;= 3.6 版本的。</li>
-<li>在我们的 <a class="reference external" href="https://github.com/purduesigbots/pros-cli3/releases/latest">发布页</a> 上检查 PROS CLI 的最新版本，之后运行命令 <code class="code docutils literal notranslate"><span class="pre">python3.6</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">https://github.com/purduesigbots/pros-cli/releases/download/3.X.X/pros_cli_v5-3.X.X-py3-none-any.whl</span></code>，把 ‘python’ 后面的版本替换成你装的，把 Xs 替换成你下载的。如果你想给所有用户安装，在命令前加上 <code class="code docutils literal notranslate"><span class="pre">sudo</span></code>，并且移除 <code class="code docutils literal notranslate"><span class="pre">--user</span></code> 标识。</li>
+<li>如果你还没有安装 Python，你需要安装一个 &gt;= 3.6 版本的。</li>
+<li>在我们的 <a class="reference external" href="https://github.com/purduesigbots/pros-cli3/releases/latest">发布页面</a> 上检查 PROS CLI 的最新版本，之后运行命令 <code class="code docutils literal notranslate"><span class="pre">python3.6</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">https://github.com/purduesigbots/pros-cli/releases/download/3.X.X/pros_cli_v5-3.X.X-py3-none-any.whl</span></code>，把 ‘python’ 后面的版本替换成你装的，把 Xs 替换成你下载的。如果你想给所有用户安装，在命令前加上 <code class="code docutils literal notranslate"><span class="pre">sudo</span></code>，并且移除 <code class="code docutils literal notranslate"><span class="pre">--user</span></code> 标识。</li>
 <li>运行 <code class="code docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">--version</span></code> 来检查 CLI 是否安装正确。如果命令不起作用，尝试重新启动你的计算机。</li>
 </ol>
 </div>

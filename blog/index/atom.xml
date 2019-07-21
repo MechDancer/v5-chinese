@@ -19,7 +19,7 @@
 </content>
   </entry>
   <entry xml:base="blog/blog/index/atom.xml">
-    <title type="text">PROS CLI 3.1.4 Release</title>
+    <title type="text">PROS CLI 3.1.4 版本</title>
     <id>blog/releases/cli3.1.4.html</id>
     <updated>2019-02-18T00:00:00Z</updated>
     <published>2019-02-18T00:00:00Z</published>
@@ -27,7 +27,7 @@
     <author>
       <name></name>
     </author>
-    <content type="html">&lt;p&gt;New UI experience for creating, upgrading, and uploading projects&lt;/p&gt;
+    <content type="html">&lt;p&gt;创建、升级和上传项目的新 UI 体验&lt;/p&gt;
 </content>
   </entry>
   <entry xml:base="blog/blog/index/atom.xml">
@@ -106,7 +106,7 @@ Brain with PROS.&lt;/p&gt;
 </content>
   </entry>
   <entry xml:base="blog/blog/index/atom.xml">
-    <title type="text">PROS CLI 3.1.2 Release</title>
+    <title type="text">PROS CLI 3.1.2 版本</title>
     <id>blog/releases/cli3.1.2.html</id>
     <updated>2018-09-20T00:00:00Z</updated>
     <published>2018-09-20T00:00:00Z</published>
@@ -114,7 +114,7 @@ Brain with PROS.&lt;/p&gt;
     <author>
       <name></name>
     </author>
-    <content type="html">&lt;p&gt;Improved logging for debugging&lt;/p&gt;
+    <content type="html">&lt;p&gt;提升用于调试的日志记录&lt;/p&gt;
 </content>
   </entry>
   <entry xml:base="blog/blog/index/atom.xml">

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PROS CLI 3.1.4 Release &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>PROS CLI 3.1.4 版本 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -191,7 +191,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>PROS CLI 3.1.4 Release</li>
+      <li>PROS CLI 3.1.4 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,42 +212,42 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pros-cli-3-1-4-release">
-<h1>PROS CLI 3.1.4 Release<a class="headerlink" href="#pros-cli-3-1-4-release" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="pros-cli-3-1-4">
+<h1>PROS CLI 3.1.4 版本<a class="headerlink" href="#pros-cli-3-1-4" title="永久链接至标题">¶</a></h1>
 <ul class="simple">
-<li>New UI experience for creating, upgrading, and uploading projects</li>
-<li>Add binary compression to save space on the V5</li>
-<li>Add support for hot/cold linking</li>
-<li>Add V5 screen capture with <code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">v5</span> <span class="pre">capture</span></code></li>
-<li>Add wireless downloading support</li>
-<li>Added support for supplying upload arguments to <code class="docutils literal notranslate"><span class="pre">mu</span></code>/<code class="docutils literal notranslate"><span class="pre">mut</span></code>/<code class="docutils literal notranslate"><span class="pre">ut</span></code></li>
-<li>Bug fixes to V5 upload protocol</li>
+<li>创建、升级和上传项目的新 UI 体验</li>
+<li>添加二进制压缩以节省 V5 上的空间</li>
+<li>添加对冷/热链接的支持</li>
+<li>添加使用 <code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">v5</span> <span class="pre">capture</span></code> 对 V5 屏幕进行捕获</li>
+<li>添加无线下载支持</li>
+<li>添加了对 <code class="docutils literal notranslate"><span class="pre">mu</span></code>/<code class="docutils literal notranslate"><span class="pre">mut</span></code>/<code class="docutils literal notranslate"><span class="pre">ut</span></code> 提供上传参数的支持</li>
+<li>修复 V5 上传协议的 bug</li>
 </ul>
-<div class="section" id="updating-to-the-new-version">
-<h2>Updating to the new version<a class="headerlink" href="#updating-to-the-new-version" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h2>更新到新版本<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <div class="section" id="python-pip">
 <h3>Python PIP<a class="headerlink" href="#python-pip" title="永久链接至标题">¶</a></h3>
-<p>Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/purduesigbots/pros-cli/releases/download/3.1.4/pros_cli_v5-3.1.4-py3-none-any.whl</span></code> (or pip3, depending on your system)</p>
+<p>运行 <a href="#id2"><span class="problematic" id="id3">``</span></a>pip install <a class="reference external" href="https://github.com/purduesigbots/pros-cli/releases/download/3.1.4/pros_cli_v5-3.1.4-py3-none-any">https://github.com/purduesigbots/pros-cli/releases/download/3.1.4/pros_cli_v5-3.1.4-py3-none-any</a>.whl``（或 pip3，这取决于你的系统）</p>
 </div>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
-<p>Download and run the appropriate (.exe) installer from <a class="reference external" href="https://github.com/purduesigbots/pros-cli/releases/3.1.4">our release page</a>.</p>
+<p>从我们的 <a class="reference external" href="https://github.com/purduesigbots/pros-cli/releases/3.1.4">发布页面</a> 下载并运行合适的安装程序（.exe）</p>
 </div>
 <div class="section" id="macos">
 <h3>macOS<a class="headerlink" href="#macos" title="永久链接至标题">¶</a></h3>
-<p>To upgrade a previous installation, run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">upgrade</span> <span class="pre">pros-cli</span></code>.
-If you have the editor installed, you can also run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">upgrade</span> <span class="pre">pros-editor</span></code>.</p>
-<p>To install from scratch:</p>
-<p>Install Homebrew if it’s not already installed. This may take a while.
-Run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">tap</span> <span class="pre">osx-cross/arm</span> <span class="pre">&amp;&amp;</span> <span class="pre">brew</span> <span class="pre">tap</span> <span class="pre">purduesigbots/pros</span></code>
-Run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gcc-arm-bin</span> <span class="pre">&amp;&amp;</span> <span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">install</span> <span class="pre">pros-editor</span></code> (if you want to install only the CLI, you can run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gcc-arm-bin</span> <span class="pre">pros-cli</span></code> instead)</p>
-<div class="section" id="notes">
-<h4>Notes:<a class="headerlink" href="#notes" title="永久链接至标题">¶</a></h4>
+<p>要从之前的版本升级，运行 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">upgrade</span> <span class="pre">pros-cli</span></code>。
+如果你还安装了编辑器，还可以运行 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">upgrade</span> <span class="pre">pros-editor</span></code>。</p>
+<p>从头开始安装：</p>
+<p>如果你还未安装 Homebrew，那么去安装一个。这会花上点时间。
+运行 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">tap</span> <span class="pre">osx-cross/arm</span> <span class="pre">&amp;&amp;</span> <span class="pre">brew</span> <span class="pre">tap</span> <span class="pre">purduesigbots/pros</span></code>
+运行 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gcc-arm-bin</span> <span class="pre">&amp;&amp;</span> <span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">install</span> <span class="pre">pros-editor``（如果你仅想安装</span> <span class="pre">CLI，你可以取而代之运行</span> <span class="pre">``brew</span> <span class="pre">install</span> <span class="pre">gcc-arm-bin</span> <span class="pre">pros-cli</span></code>）</p>
+<div class="section" id="id5">
+<h4>注意事项：<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
-<li>if Homebrew complains (“It seems there is already an App at ‘/usr/local/Caskroom/pros-editor/1.32.2/PROS Editor.app’”) when trying to upgrade the editor, run <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">upgrade</span> <span class="pre">--force</span> <span class="pre">pros-editor</span></code> instead.</li>
-<li>if you already have the PROS CLI installed, or if Homebrew complains about some files existing when trying to install the CLI, you’ll want to uninstall it first</li>
-<li>if you installed using pip, you can run pip3 uninstall pros-cli-v5</li>
-<li>if you installed using the .app bundle, you can move that bundle to the trash folder, and then run <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-f</span> <span class="pre">/usr/local/bin/prosv5</span></code> to clear out the old file</li>
+<li>如果在升级编辑器时 Homebrew 报错（”It seems there is already an App at ‘/usr/local/Caskroom/pros-editor/1.32.2/PROS Editor.app’”），取而代之运行 <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">cask</span> <span class="pre">upgrade</span> <span class="pre">--force</span> <span class="pre">pros-editor</span></code>。</li>
+<li>如果你已经安装 PROS CLI 或在安装 CLI 时 Homebrew 报错说一些文件已经存在，你需要先卸载它们</li>
+<li>如果之前使用 pip 进行的安装，你可以运行 pip3 uninstall pros-cli-v5</li>
+<li>如果之前使用 .app 程序包进行的安装，你可以将程序包移入废纸篓，然后运行 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-f</span> <span class="pre">/usr/local/bin/prosv5</span></code> 来清除旧文件</li>
 </ul>
 </div>
 </div>

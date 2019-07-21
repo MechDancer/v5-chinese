@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PROS CLI 3.1.2 Release &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>PROS CLI 3.1.2 版本 &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -191,7 +191,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>PROS CLI 3.1.2 Release</li>
+      <li>PROS CLI 3.1.2 版本</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,39 +212,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pros-cli-3-1-2-release">
-<h1>PROS CLI 3.1.2 Release<a class="headerlink" href="#pros-cli-3-1-2-release" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="pros-cli-3-1-2">
+<h1>PROS CLI 3.1.2 版本<a class="headerlink" href="#pros-cli-3-1-2" title="永久链接至标题">¶</a></h1>
 <ul class="simple">
-<li>Improved logging for debugging</li>
-<li>Added V5 drivers to Windows installers</li>
-<li>Added V5 Vision Utility to Windows Installers</li>
+<li>提升用于调试的日志记录</li>
+<li>为 Windows 安装程序添加 V5 驱动</li>
+<li>为 Windows 安装程序添加视觉实用工具</li>
 </ul>
-<div class="section" id="updating-to-the-new-version">
-<h2>Updating to the new version<a class="headerlink" href="#updating-to-the-new-version" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h2>更新到新版本<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <div class="section" id="python-pip">
 <h3>Python PIP<a class="headerlink" href="#python-pip" title="永久链接至标题">¶</a></h3>
-<p>Run pip install <a class="reference external" href="https://github.com/purduesigbots/pros-cli3/releases/download/3.1.2/pros_cli_v5-3.1.2-py3-none-any.whl">https://github.com/purduesigbots/pros-cli3/releases/download/3.1.2/pros_cli_v5-3.1.2-py3-none-any.whl</a> (or pip3, depending on your system)</p>
+<p>运行 pip install <a class="reference external" href="https://github.com/purduesigbots/pros-cli3/releases/download/3.1.2/pros_cli_v5-3.1.2-py3-none-any">https://github.com/purduesigbots/pros-cli3/releases/download/3.1.2/pros_cli_v5-3.1.2-py3-none-any</a>.whl（或者 pip3，这取决于你的系统）</p>
 </div>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
-<p>Download and run the appropriate installer</p>
+<p>下载并运行合适的安装程序</p>
 </div>
 <div class="section" id="macos">
 <h3>macOS<a class="headerlink" href="#macos" title="永久链接至标题">¶</a></h3>
-<p>See below for the new recommended method of installing the CLI</p>
-<div class="section" id="macos-installs">
-<h4>macOS installs<a class="headerlink" href="#macos-installs" title="永久链接至标题">¶</a></h4>
-<p>Install Homebrew if it’s not already installed. This may take a while.
-Run brew tap purduesigbots/pros
-Run brew cask install gcc-arm-embedded pros-editor (if you want to install only the CLI, you can run brew cask install gcc-arm-embedded &amp;&amp; brew install pros-cli instead)</p>
+<p>参见下方安装 CLI 推荐的新方法</p>
+<div class="section" id="id2">
+<h4>macOS 安装方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h4>
+<p>如果你还未安装 Homebrew，那么去安装一个，这会花上点时间
+运行 brew tap purduesigbots/pros
+运行 brew cask install gcc-arm-embedded pros-editor（如果你仅想安装 CLI，你可以取而代之运行 brew cask install gcc-arm-embedded &amp;&amp; brew install pros-cli）</p>
 </div>
-<div class="section" id="notes">
-<h4>Notes:<a class="headerlink" href="#notes" title="永久链接至标题">¶</a></h4>
+<div class="section" id="id3">
+<h4>注意事项：<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
-<li>if Homebrew complains about some files existing when trying to install the toolchain (gcc-arm-embedded), run rm -f /usr/local/bin/arm-none-eabi-* to clear the old files out</li>
-<li>if you already have the PROS CLI installed, or if Homebrew complains about some files existing when trying to install the CLI, you’ll want to uninstall it first</li>
-<li>if you installed using pip, you can run pip3 uninstall pros-cli-v5</li>
-<li>if you installed using the .app bundle, you can move that bundle to the trash folder, and then run rm -f /usr/local/bin/prosv5 to clear out the old file</li>
+<li>如果在安装工具链（gcc-arm-embedded）时 Homebrew 报错说一些文件已经存在，运行 rm -f /usr/local/bin/arm-none-eabi-* 来清除旧文件</li>
+<li>如果你已经安装 PROS CLI 或在安装 CLI 时 Homebrew 报错说一些文件已经存在，你需要先卸载它们</li>
+<li>如果之前使用 pip 进行的安装，你可以运行 pip3 uninstall pros-cli-v5</li>
+<li>如果之前使用 .app 程序包进行的安装，你可以将程序包移入废纸篓，然后运行 rm -f /usr/local/bin/prosv5 来清除旧文件</li>
 </ul>
 </div>
 </div>
