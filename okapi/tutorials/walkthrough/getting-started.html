@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started with OkapiLib &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>入门 OkapiLib &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -148,9 +148,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/index.html">OkapiLib API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#walkthrough-tutorials">Walkthrough Tutorials</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Getting Started with OkapiLib</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">入门 OkapiLib</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id1">介绍</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id5">疑难解答</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="clawbot.html">Programming the Clawbot</a></li>
@@ -166,9 +166,9 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorials</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#walkthrough-tutorials">Walkthrough Tutorials</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Getting Started with OkapiLib</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">入门 OkapiLib</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">疑难解答</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="clawbot.html">Programming the Clawbot</a></li>
@@ -232,7 +232,7 @@
         
           <li><a href="../index.html">Tutorials</a> &raquo;</li>
         
-      <li>Getting Started with OkapiLib</li>
+      <li>入门 OkapiLib</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -253,15 +253,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-started-with-okapilib">
-<h1>Getting Started with OkapiLib<a class="headerlink" href="#getting-started-with-okapilib" title="永久链接至标题">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="永久链接至标题">¶</a></h2>
-<p>OkapiLib is installed in all new PROS projects by default. If you are unsure if OkapiLib is
-installed, you can check the output of <code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">conduct</span> <span class="pre">info-project</span></code>. Additionally, OkapiLib’s
-header files reside in <code class="docutils literal notranslate"><span class="pre">include/okapi</span></code>. Once you know that OkapiLib is installed, you can start
-using it by uncommenting OkapiLib’s API header include statement in the file <code class="docutils literal notranslate"><span class="pre">include/main.h</span></code>
-(line 4 below):</p>
+  <div class="section" id="okapilib">
+<h1>入门 OkapiLib<a class="headerlink" href="#okapilib" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>OkapiLib 默认伴随着所有新 PROS 项目安装。如果你不确定 OkapiLib 是否已经安装，你可以检查 <code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">conduct</span> <span class="pre">info-project</span></code> 命令的输出。此外，OkapiLib 的头文件位于</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">include/okapi</span></code>。确认好 OkapiLib 已安装后，就可以开始使用了。</div></blockquote>
+<p>不要忘记取消注释文件 <code class="docutils literal notranslate"><span class="pre">include/main.h</span></code> 中包括 OkapiLib API 头文件的语句（下面这四行：）</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -273,16 +272,15 @@ using it by uncommenting OkapiLib’s API header include statement in the file <
  <span class="c1">//#include &quot;pros/api_legacy.h&quot;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Then, in file <code class="docutils literal notranslate"><span class="pre">src/opcontrol.cpp</span></code>, remove the statement <code class="docutils literal notranslate"><span class="pre">using</span> <span class="pre">namespace</span> <span class="pre">pros::literals</span></code> (if it exists).</p>
-<p>That’s it! Take a look at the <a class="reference external" href="../index.html">other tutorials</a> to get a better understanding
-of the tools Okapilib has.</p>
+<p>接下来，在文件 <code class="docutils literal notranslate"><span class="pre">src/opcontrol.cpp</span></code> 中移除语句 <a href="#id2"><span class="problematic" id="id3">``</span></a>using namespace pros::literals``（如果它存在的话）。</p>
+<p>就这样！查看 <a class="reference external" href="../index.html">其他教程</a> 来更好地理解
+Okapilib 拥有的工具。</p>
 </div>
-<div class="section" id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="永久链接至标题">¶</a></h2>
-<p>If OkapiLib is not getting downloaded from GitHub correctly during installation, you can <a class="reference external" href="https://github.com/OkapiLib/OkapiLib/releases">download
-it manually here</a>
-and then install it by running <code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">conduct</span> <span class="pre">fetch</span> <span class="pre">path/to/okapilib.zip</span></code>. Once OkapiLib is
-installed, try creating a PROS project again.</p>
+<div class="section" id="id5">
+<h2>疑难解答<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>如果在安装过程中 OkapiLib 并没有从 GitHub 正确下载，你可以你可以在
+<a class="reference external" href="https://github.com/OkapiLib/OkapiLib/releases">这里</a> 手动下载，并通过运行
+<code class="docutils literal notranslate"><span class="pre">prosv5</span> <span class="pre">conduct</span> <span class="pre">fetch</span> <span class="pre">path/to/okapilib.zip</span></code> 安装。当 OkapiLib 安装好之后，重新创建 PROS 项目。</p>
 </div>
 </div>
 
