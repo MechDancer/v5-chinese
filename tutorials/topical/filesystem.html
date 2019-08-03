@@ -249,7 +249,7 @@
 <p>在 PROS 中与文件系统交互时唯一需要附加的细节是microSD 卡上的文件 <strong>必须</strong> 以 <code class="docutils literal notranslate"><span class="pre">/usd/</span></code> 开头。
 microSD 卡上的文件可以通过以下方式写入：</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">FILE</span><span class="o">*</span> <span class="n">usd_file_write</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;/usd/example.txt&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">);</span>
-<span class="n">fputs</span><span class="p">(</span><span class="s">&quot;Example text&quot;</span><span class="p">,</span> <span class="n">usd_fil_write</span><span class="p">);</span>
+<span class="n">fputs</span><span class="p">(</span><span class="s">&quot;Example text&quot;</span><span class="p">,</span> <span class="n">usd_file_write</span><span class="p">);</span>
 <span class="n">fclose</span><span class="p">(</span><span class="n">usd_file_write</span><span class="p">);</span>
 
 <span class="kt">FILE</span><span class="o">*</span> <span class="n">usd_file_read</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;/usd/example.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
