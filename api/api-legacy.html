@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Legacy API &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>旧版 API &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -31,8 +31,6 @@
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   
 
-<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
   
     <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
   
@@ -51,7 +49,6 @@
         <link rel="up" title="API 主页" href="index.html"/>
         <link rel="next" title="C API" href="c/index.html"/>
         <link rel="prev" title="Vision Sensor C++ API" href="cpp/vision.html"/>
-  
    
   
   <link rel="alternate" type="application/atom+xml"  href="../blog/index/atom.xml" title="Blog">
@@ -97,9 +94,7 @@
             
             
               <div class="version">
-                
-                  V5 (3.1.6)
-                
+                V5 (3.1.6)
               </div>
             
           
@@ -113,6 +108,7 @@
   </form>
 </div>
 
+          
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -154,10 +150,10 @@
 <li class="toctree-l2"><a class="reference internal" href="cpp/motors.html">Motors C++ API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/rtos.html">RTOS Facilities C++ API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/vision.html">Vision Sensor C++ API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Legacy API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adi-functions">ADI Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#analogcalibrate">analogCalibrate</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#analogread">analogRead</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">旧版 API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adi">ADI 功能</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">模拟校准</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">模拟读取</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analogreadcalibrated">analogReadCalibrated</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analogreadcalibratedhr">analogReadCalibratedHR</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#digitalread">digitalRead</a></li>
@@ -260,6 +256,7 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
         <div class="rst-content">
           
@@ -286,7 +283,7 @@
         
           <li><a href="index.html">API 主页</a> &raquo;</li>
         
-      <li>Legacy API</li>
+      <li>旧版 API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -307,37 +304,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="legacy-api">
-<h1>Legacy API<a class="headerlink" href="#legacy-api" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="api">
+<h1>旧版 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
 <p class="last">Using this functionality requires including <code class="docutils literal notranslate"><span class="pre">&quot;pros/api_legacy.h&quot;</span></code> in
 addition to <code class="docutils literal notranslate"><span class="pre">&quot;api.h&quot;</span></code>.</p>
 </div>
-<div class="section" id="adi-functions">
-<h2>ADI Functions<a class="headerlink" href="#adi-functions" title="永久链接至标题">¶</a></h2>
-<div class="section" id="analogcalibrate">
-<h3>analogCalibrate<a class="headerlink" href="#analogcalibrate" title="永久链接至标题">¶</a></h3>
-<p>Calibrates the analog sensor on the specified channel.</p>
-<p>This method assumes that the true sensor value is not actively changing at this time and
-computes an average from approximately 500 samples, 1 ms apart, for a 0.5 s period of
-calibration. The average value thus calculated is returned and stored for later calls to the
-<a class="reference external" href="./c/adi.html#adi-analog-read-calibrated">adi_analog_read_calibrated</a> and <a class="reference external" href="./c/adi.html#adi-analog-read-calibrated-hr">adi_analog_read_calibrated_HR</a> functions. These functions will return
-the difference between this value and the current sensor value when called.</p>
-<p>Do not use this function when the sensor value might be unstable
-(gyro rotation, accelerometer movement).</p>
+<div class="section" id="adi">
+<h2>ADI 功能<a class="headerlink" href="#adi" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h3>模拟校准<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>校准指定通道上的模拟传感器。</p>
+<p>此方法假定此时没有主动更改真正的传感器值,并且
+计算来自大约 500 个样本的平均值,间隔 1 毫秒,持续 0.5 s 的周期
+校准。计算的平均值将返回并存储,以便以后调用
+<a href="#id6"><span class="problematic" id="id7">`adi_analog_read_calibrated`_</span></a> 和 <a href="#id8"><span class="problematic" id="id9">`adi_analog_read_calibrated_HR`_</span></a> 这些函数将返回
+调用时此值和当前传感器值之间的差异。</p>
+<p>当传感器值可能不稳定时,请勿使用此功能
+(陀螺旋转,加速度计运动)。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">The ADI currently returns data at 50msintervals, despite the calibrate function’s
-1ms sample rate. This sample rate was kept for the sake of being similar to PROS
-2, and increasing the sample rate would not have a tangible difference in the
-function’s performance.</p>
+<p class="last">ADI目前以50ms间隔返回数据,尽管有校准功能
+1ms 采样率。为了与 PROS 相似,保持了此采样率
+2,提高采样率在
+功能的性能。</p>
 </div>
-<p>This function uses the following values of <code class="docutils literal notranslate"><span class="pre">errno</span></code> when an error state is reached:</p>
+<p>当达到错误状态时,此函数使用以下值”errno”:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - The port number is out of range or the port is not configured to be an analog input.</li>
+<li>“EINVAL” - 端口号不在范围内,或者端口未配置为模拟输入。</li>
 </ul>
-<p>Analogous to <a class="reference external" href="./c/adi.html#adi-analog-calibrate">adi_analog_calibrate</a>.</p>
+<p>类似于`adi_analog_calibrate &lt;./c/adi.html#adi-analog-calibrate&gt;`_.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-0-0 docutils container">
@@ -385,16 +382,16 @@ Example</div>
 <p><strong>Returns:</strong> The average sensor value computed by this function.</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="analogread">
-<h3>analogRead<a class="headerlink" href="#analogread" title="永久链接至标题">¶</a></h3>
-<p>Reads an analog input channel and returns the 12-bit value.</p>
-<p>The value returned is undefined if the analog pin has been switched to a different mode.
-The meaning of the returned value varies depending on the sensor attached.</p>
-<p>This function uses the following values of <code class="docutils literal notranslate"><span class="pre">errno</span></code> when an error state is reached:</p>
+<div class="section" id="id2">
+<h3>模拟读取<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>读取模拟输入通道并返回 12 位值。</p>
+<p>如果模拟引脚已切换到其他模式,则返回的值未定义。
+返回值的类型因所连接的传感器而异。</p>
+<p>当达到错误状态时,此函数使用以下值”errno”:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - The port number is out of range or the port is not configured to be an analog input.</li>
+<li>“EINVAL” - 端口号不在范围内,或者端口未配置为模拟输入。</li>
 </ul>
-<p>Analogous to <a class="reference external" href="./c/adi.html#adi-analog-read">adi_analog_read</a>.</p>
+<p>类似于`adi_analog_read &lt;./c/adi.html#adi-analog-read&gt;`_.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -446,15 +443,17 @@ and a value of 4095 reflects an input voltage of nearly 5 V</p>
 <hr class="docutils" />
 <div class="section" id="analogreadcalibrated">
 <h3>analogReadCalibrated<a class="headerlink" href="#analogreadcalibrated" title="永久链接至标题">¶</a></h3>
-<p>Reads the calibrated value of an analog input channel.</p>
-<p>The <a class="reference internal" href="#analogcalibrate">analogCalibrate</a> function must be run first on that channel. This function is
-inappropriate for sensor values intended for integration, as round-off error can accumulate
-causing drift over time. Use <a class="reference internal" href="#analogreadcalibratedhr">analogReadCalibratedHR</a> instead.</p>
-<p>This function uses the following values of <code class="docutils literal notranslate"><span class="pre">errno</span></code> when an error state is reached:</p>
-<ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - The port number is out of range or the port is not configured to be an analog input.</li>
+<p>读取模拟输入通道的校准值。</p>
+<p>必须首先在该通道上运行`analogCalibrate`_函数。 这个功能是
+不适合用于积分的传感器值，因为可以累积舍入误差
+导致随时间漂移。 请改用“analogReadCalibratedHR`_”。</p>
+<p>当达到错误状态时，此函数使用以下值``errno``：</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - 端口号超出范围或端口未配置为模拟输入。</li>
 </ul>
-<p>Analogous to <a class="reference external" href="./c/adi.html#adi-analog-read-calibrated">adi_analog_read_calibrated</a>.</p>
+</div></blockquote>
+<p>类似于`adi_analog_read_calibrated &lt;./c/adi.html#adi-analog-read-calibrated&gt;`_.</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-2-0 docutils container">
@@ -505,18 +504,20 @@ Example</div>
 <hr class="docutils" />
 <div class="section" id="analogreadcalibratedhr">
 <h3>analogReadCalibratedHR<a class="headerlink" href="#analogreadcalibratedhr" title="永久链接至标题">¶</a></h3>
-<p>Reads the calibrated value of an analog input channel 1-8 with enhanced precision.</p>
-<p>The <a class="reference external" href="./c/adi.html#adi-analog-calibrate">adi_analog_calibrate</a> function must be run first. This is intended for integrated sensor
-values such as gyros and accelerometers to reduce drift due to round-off, and should not be
-used on a sensor such as a line tracker or potentiometer.</p>
-<p>The value returned actually has 16 bits of “precision”, even though the ADC only reads
-12 bits, so that errors induced by the average value being between two values come out
-in the wash when integrated over time. Think of the value as the true value times 16.</p>
-<p>This function uses the following values of <code class="docutils literal notranslate"><span class="pre">errno</span></code> when an error state is reached:</p>
-<ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - The port number is out of range or the port is not configured to be an analog input.</li>
+<p>以更高的精度读取模拟输入通道1-8的校准值。</p>
+<p>必须先运行`adi_analog_calibrate`_函数。 这适用于集成传感器
+诸如陀螺仪和加速度计之类的值可以减少由于四舍五入引起的误差，并且不应该
+用于传感器，如线跟踪器或电位计。</p>
+<p>返回的值实际上有16位“精度”，即使ADC只读取
+12位，因此由两个值之间的平均值引起的误差出现
+随着对时间的积分。，可将值视为真实值乘以16。</p>
+<p>当达到错误状态时，此函数使用以下值``errno``：</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">EINVAL</span></code>  - 端口号超出范围或端口未配置为模拟输入。</li>
 </ul>
-<p>Analogous to <a class="reference external" href="./c/adi.html#adi-analog-read-calibrated-hr">adi_analog_read_calibrated_HR</a>.</p>
+</div></blockquote>
+<p>类似于’adi_analog_read_calibrated_HR &lt;./ c / adi.html＃adi-analog-read-calibrated-hr&gt;`_。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-3-0 docutils container">
@@ -2947,7 +2948,7 @@ object to store encoder data in PROS 2.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。
+        &copy; Copyright 2019 Purdue ACM SIGBots 根据 MPL 2.0 许可发布，MechDancer 译。.
 
     </p>
   </div> 
@@ -2962,40 +2963,34 @@ object to store encoder data in PROS 2.</p>
   </div>
   
 
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Versions: </span>
-      v: V5 (3.1.6)
-      <span class="fa fa-caret-down"></span>
-    </span>
-    <div class="rst-other-versions">
-      <dl>
-        <dt>Versions</dt>
-        
-          <dd><a href="../index.html">V5</a></dd>
-        
-      </dl>
-    </div>
-  </div>
-
 
   
 
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
-        <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
-        <script type="text/javascript" src="../_static/translations.js"></script>
-    
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.1.6',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
 
   
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
 
   
   
