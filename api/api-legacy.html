@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>旧版 API &mdash; PROS for V5（中文） 3.1.6 文档</title>
+  <title>遗留 API &mdash; PROS for V5（中文） 3.1.6 文档</title>
   
 
   
@@ -154,10 +154,10 @@
 <li class="toctree-l2"><a class="reference internal" href="cpp/motors.html">Motors C++ API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/rtos.html">RTOS Facilities C++ API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cpp/vision.html">Vision Sensor C++ API</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">旧版 API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adi">ADI 功能</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">模拟校准</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">模拟读取</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">遗留 API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adi">ADI 函数</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analogcalibrate">analogCalibrate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#analogread">analogRead</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analogreadcalibrated">analogReadCalibrated</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#analogreadcalibratedhr">analogReadCalibratedHR</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#digitalread">digitalRead</a></li>
@@ -286,7 +286,7 @@
         
           <li><a href="index.html">API 主页</a> &raquo;</li>
         
-      <li>旧版 API</li>
+      <li>遗留 API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -308,36 +308,32 @@
            <div itemprop="articleBody">
             
   <div class="section" id="api">
-<h1>旧版 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<h1>遗留 API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">Using this functionality requires including <code class="docutils literal notranslate"><span class="pre">&quot;pros/api_legacy.h&quot;</span></code> in
-addition to <code class="docutils literal notranslate"><span class="pre">&quot;api.h&quot;</span></code>.</p>
+<p class="last">使用该功能需要将 <code class="docutils literal notranslate"><span class="pre">&quot;pros/api_legacy.h&quot;</span></code> 包括到
+<code class="docutils literal notranslate"><span class="pre">&quot;api.h&quot;</span></code> 中。</p>
 </div>
 <div class="section" id="adi">
-<h2>ADI 功能<a class="headerlink" href="#adi" title="永久链接至标题">¶</a></h2>
-<div class="section" id="id1">
-<h3>模拟校准<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<h2>ADI 函数<a class="headerlink" href="#adi" title="永久链接至标题">¶</a></h2>
+<div class="section" id="analogcalibrate">
+<h3>analogCalibrate<a class="headerlink" href="#analogcalibrate" title="永久链接至标题">¶</a></h3>
 <p>校准指定通道上的模拟传感器。</p>
-<p>此方法假定此时没有主动更改真正的传感器值,并且
-计算来自大约 500 个样本的平均值,间隔 1 毫秒,持续 0.5 s 的周期
-校准。计算的平均值将返回并存储,以便以后调用
-<a href="#id6"><span class="problematic" id="id7">`adi_analog_read_calibrated`_</span></a> 和 <a href="#id8"><span class="problematic" id="id9">`adi_analog_read_calibrated_HR`_</span></a> 这些函数将返回
-调用时此值和当前传感器值之间的差异。</p>
-<p>当传感器值可能不稳定时,请勿使用此功能
-(陀螺旋转,加速度计运动)。</p>
+<p>此方法假定此时没有主动更改真正的传感器值，并且会计算来自大约 500 个样本的平均值，间隔 1 毫秒，持续 0.5s 的周期校准。计算的平均值将返回并存储，以便以后调用
+<a href="#id4"><span class="problematic" id="id5">`adi_analog_read_calibrated`_</span></a> 和 <a href="#id6"><span class="problematic" id="id7">`adi_analog_read_calibrated_HR`_</span></a>。这些函数将返回调用时此值和当前传感器值之间的差异。</p>
+<p>当传感器值可能不稳定时，请勿使用此功能
+（陀螺旋转、加速度计运动）。</p>
 <div class="admonition note">
 <p class="first admonition-title">注解</p>
-<p class="last">ADI目前以50ms间隔返回数据,尽管有校准功能
-1ms 采样率。为了与 PROS 相似,保持了此采样率
-2,提高采样率在
-功能的性能。</p>
+<p class="last">尽管校准功能有
+1ms 采样率，ADI目前以 50ms 间隔返回数据。
+为了与 PROS 2 相似，保持了此采样率，提高采样率并不会对函数运行有明显影响。</p>
 </div>
-<p>当达到错误状态时,此函数使用以下值”errno”:</p>
+<p>当达到错误状态时,此函数使用以下值“errno”：</p>
 <ul class="simple">
-<li>“EINVAL” - 端口号不在范围内,或者端口未配置为模拟输入。</li>
+<li>“EINVAL” - 端口号不在范围内，或者端口未配置为模拟输入。</li>
 </ul>
-<p>类似于`adi_analog_calibrate &lt;./c/adi.html#adi-analog-calibrate&gt;`_.</p>
+<p>类似于 <a class="reference external" href="./c/adi.html#adi-analog-calibrate">adi_analog_calibrate</a>。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-0-0 docutils container">
@@ -382,19 +378,18 @@ Example</div>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> The average sensor value computed by this function.</p>
+<p><strong>返回：</strong> 该函数计算出传感器的平均值。</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="id2">
-<h3>模拟读取<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<div class="section" id="analogread">
+<h3>analogRead<a class="headerlink" href="#analogread" title="永久链接至标题">¶</a></h3>
 <p>读取模拟输入通道并返回 12 位值。</p>
-<p>如果模拟引脚已切换到其他模式,则返回的值未定义。
-返回值的类型因所连接的传感器而异。</p>
-<p>当达到错误状态时,此函数使用以下值”errno”:</p>
+<p>如果模拟引脚已切换到其他模式，则会返回未定义。返回值的类型因所连接的传感器而异。</p>
+<p>当达到错误状态时，此函数使用以下值“errno”：</p>
 <ul class="simple">
-<li>“EINVAL” - 端口号不在范围内,或者端口未配置为模拟输入。</li>
+<li>“EINVAL” - 端口号不在范围内，或者端口未配置为模拟输入。</li>
 </ul>
-<p>类似于`adi_analog_read &lt;./c/adi.html#adi-analog-read&gt;`_.</p>
+<p>类似于 <a class="reference external" href="./c/adi.html#adi-analog-read">adi_analog_read</a>。</p>
 <div class="sphinx-tabs docutils container">
 <div class="ui top attached tabular menu sphinx-menu docutils container">
 <div class="active item sphinx-data-tab-1-0 docutils container">
@@ -447,7 +442,7 @@ and a value of 4095 reflects an input voltage of nearly 5 V</p>
 <div class="section" id="analogreadcalibrated">
 <h3>analogReadCalibrated<a class="headerlink" href="#analogreadcalibrated" title="永久链接至标题">¶</a></h3>
 <p>读取模拟输入通道的校准值。</p>
-<p>必须首先在该通道上运行`analogCalibrate`_函数。 这个功能是
+<p>必须首先在该通道上运行 <a class="reference internal" href="#analogcalibrate">analogCalibrate</a> 函数。 这个功能是
 不适合用于积分的传感器值，因为可以累积舍入误差
 导致随时间漂移。 请改用“analogReadCalibratedHR`_”。</p>
 <p>当达到错误状态时，此函数使用以下值``errno``：</p>
